@@ -1,4 +1,4 @@
-export const About = () => {
+export default function About(){
     return (
         <section className="my-24">
             <div className="container relative mx-auto flex-col flex p-16 lg:h-[32rem] lg:flex-row lg:items-center text-cp3 bg-cp2 drop-shadow-xl rounded-xl">

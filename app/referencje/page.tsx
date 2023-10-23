@@ -1,4 +1,4 @@
-export const Testimonials = () => {
+export default function Testimonials(){
 
     const testimonials = [
         {

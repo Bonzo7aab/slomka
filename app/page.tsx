@@ -4,11 +4,11 @@ import Link from "next/link"
 import { Parallax, ParallaxProvider } from "react-scroll-parallax"
 import Image from "next/image"
 import TextGradient from "./helper"
-import { Contact } from "./kontakt/page"
-import { About } from "./omnie/page"
-import { Projects } from "./projekty/page"
-import { Testimonials } from "./referencje/page"
-import { Attributes } from "./cechy/page"
+import Contact from "./kontakt/page"
+import About from "./omnie/page"
+import Projects from "./projekty/page"
+import Testimonials from "./referencje/page"
+import Attributes from "./cechy/page"
 
 const Hero8 = () => {
     return (
