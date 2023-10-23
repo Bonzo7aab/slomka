@@ -8,7 +8,7 @@ import { Contact } from "./kontakt/page"
 import { About } from "./omnie/page"
 import { Projects } from "./projekty/page"
 import { Testimonials } from "./referencje/page"
-import { MyFeatures } from "./cechy/page"
+import { Attributes } from "./cechy/page"
 
 const Hero8 = () => {
     return (
@@ -123,7 +123,7 @@ export default function Home() {
       <div className="bg-cp4">
         <MozaikGallery />
         <About />
-        <MyFeatures />
+        <Attributes />
         {/* <Parallax translateX={[-20, 0]}> */}
         {/* </Parallax> */}
         <Projects />
