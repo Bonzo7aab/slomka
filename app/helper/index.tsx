@@ -1,20 +1,9 @@
-type TextGradientProps = {
-    text: string
-    from?: string
-    via?: string
-    to?: string
+const SectionTitle = ({ title }: { title: string }) => {
+  return (
+    <div className="px-4 py-2 mb-16 text-4xl font-bold text-center text-black border-t-2 border-b-2 md:rounded-lg md:self-center lg:text-5xl lg:border-0 font-rubik border-cp0-500 bg-cp0-500 md:w-[600px]">
+      {title}
+    </div>
+  )
 }
-  
-export default function TextGradient(props: TextGradientProps) {
-    const from = props.from || 'from-orange-700'
-    const via = props.via || 'via-blue-500'
-    const to = props.to || 'to-green-400'
-  
-    return (
-      <span
-        className={`bg-gradient-to-r ${from} ${via} ${to} text-transparent bg-clip-text bg-300% animate-gradient`}
-      >
-        {props.text}
-      </span>
-    )
-}
+
+export { SectionTitle }
