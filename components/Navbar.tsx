@@ -87,7 +87,7 @@ const Navbar = () => {
                 offset={-120}
                 title='Strona Główna'
               >
-                  <Image alt='logoT' src={'/logoT.png'} width={100} height={200} />
+                  <Image alt='logoT' src={'/logoT.png'} width={60} height={60} />
               </Link>
               <button
                 aria-label="Open Menu"
@@ -123,7 +123,7 @@ const Navbar = () => {
                       offset={-120}
                       title='Strona Główna'
                     >
-                      <Image alt='logoT' src={'/logoT.png'} width={100} height={200} />
+                      <Image alt='logoT' src={'/logoT.png'} width={60} height={60} />
                     </Link>
                     <div>
                       <button
