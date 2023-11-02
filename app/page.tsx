@@ -1,5 +1,6 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { SectionTitle } from "./helper"
 import Contact from "./kontakt/page"
 import About from "./omnie/page"
@@ -43,21 +44,51 @@ const MozaikGallery = () => {
             <SectionTitle title={"MOJA OFERTA"} />
 
             <div className="grid gap-8 px-4 sm:grid-cols-12 sm:px-6 lg:px-8 lg:py-14">
-                <div className="col-span-12 sm:self-end sm:col-span-7 md:col-span-8 lg:col-span-5 lg:col-start-3">
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    transition={{ delay: 0.1, duration: 0.8, ease: "easeInOut" }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="col-span-12 sm:self-end sm:col-span-7 md:col-span-8 lg:col-span-5 lg:col-start-3"
+                >
                     <MozaikItem text="Usługi dronem" description="Filmowanie z powietrza w wysokiej jakości plus montaż. Zarówno w dzień jak i w nocy." src="/mosaik6.jpg"/>
-                </div>
-                <div className="col-span-12 sm:self-end sm:col-span-5 md:col-span-4 lg:col-span-3">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="col-span-12 sm:self-end sm:col-span-5 md:col-span-4 lg:col-span-3"
+                >
                     <MozaikItem text="Edycja wideo" description="Edycja podesłanych materiałów oraz obróbka na potrzeby klienta." src="/mosaik4.jpg"/>
-                </div>
-                <div className="col-span-12 md:col-span-4">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="col-span-12 md:col-span-4"
+                >
                     <MozaikItem text="Eventy" description="Całościowa i kompletna obsługa różnych eventów zawierająca zaróno filmowanie, fotografia jak i filmowanie z drona. " src="/mosaik3.jpg"/>
-                </div>
-                <div className="col-span-12 sm:col-span-6 md:col-span-4">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    transition={{ delay: 0.7, duration: 0.8, ease: "easeInOut" }}
+                    whileInView={{ opacity: 1 }} 
+                    viewport={{ once: true }}
+                    className="col-span-12 sm:col-span-6 md:col-span-4"
+                >
                     <MozaikItem text="Wesela" description="Filmowanie oraz fotografia przyjęć weselnych, plus na życzenie filmowanie z drona." src="/mosaik1.jpg"/>
-                </div>
-                <div className="col-span-12 sm:col-span-6 md:col-span-4">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    transition={{ delay: 0.9, duration: 0.8, ease: "easeInOut" }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="col-span-12 sm:col-span-6 md:col-span-4"
+                >
                     <MozaikItem text="Filmy produktowe" description="Montaż filmów produktowych od A do Z." src="/mosaik5.jpg"/>
-                </div>
+                </motion.div>
             </div>
         </section>
     )
@@ -65,7 +96,7 @@ const MozaikGallery = () => {
 
 export default function Home() {
     return (
-        <div className="flex flex-col gap-16 bg-black lg:gap-16">
+        <div className="flex flex-col gap-16 bg-black lg:gap-32">
             <Hero />
             <MozaikGallery />
             <About />
@@ -76,16 +107,3 @@ export default function Home() {
         </div>
     )
 }
-
-
-// napewno chciałbym  rozdzielić swoje uslugi jako:
-
-// wesela:nagrywanie filmów wraz z nagrywaniem dronem oraz montaż 
-
-// usługi dla klientów video komercyjne typu:
-// -eventy
-// -filmy produktowe
-// -usługowe
-
-// oraz
-// uslugi dronem

@@ -1,7 +1,8 @@
 "use client"
 
-import Image from 'next/image';
 import React, { useState } from 'react'
+import Image from 'next/image';
+import { motion } from "framer-motion"
 import { Link } from 'react-scroll';
 
 const Navbar = () => {
@@ -15,6 +16,7 @@ const Navbar = () => {
           <ul className="items-center hidden gap-3 space-x-8 lg:flex md:flex">
             <li>
               <Link
+                href='offer'
                 to="offer"
                 spy={true}
                 smooth={true}
@@ -28,6 +30,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
+                href='about'
                 to="about"
                 spy={true}
                 smooth={true}
@@ -41,17 +44,19 @@ const Navbar = () => {
             </li>
             <li>
               <Link
+                href='home'
                 to="home"
                 spy={true}
                 smooth={true}
                 duration={500}
                 offset={-120}
               >
-                  <Image alt='logoT' src={'/logoT.png'} width={70} height={100} className='animate-logoBlur'/>
+                  <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
               </Link>
             </li>
             <li>
               <Link
+                href='projects'
                 to="projects"
                 spy={true}
                 smooth={true}
@@ -65,6 +70,7 @@ const Navbar = () => {
             </li>
             <li>
               <Link
+                href='contact'
                 to="contact"
                 spy={true}
                 smooth={true}
@@ -80,6 +86,7 @@ const Navbar = () => {
           <div className="w-full md:hidden">
             <div className='flex justify-between px-4'>
               <Link
+                href='home'
                 to="home"
                 spy={true}
                 smooth={true}
@@ -87,7 +94,7 @@ const Navbar = () => {
                 offset={-120}
                 title='Strona Główna'
               >
-                  <Image alt='logoT' src={'/logoT.png'} width={60} height={60} />
+                  <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
               </Link>
               <button
                 aria-label="Open Menu"
@@ -112,10 +119,11 @@ const Navbar = () => {
               </button>
             </div>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
+              <div className="absolute top-0 left-0 w-full -mt-4">
                 <div className="p-5 text-white bg-black border rounded shadow-sm border-cp0-400">
-                  <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center justify-between mb-4 px-2">
                     <Link
+                      href="home"
                       to="home"
                       spy={true}
                       smooth={true}
@@ -123,7 +131,7 @@ const Navbar = () => {
                       offset={-120}
                       title='Strona Główna'
                     >
-                      <Image alt='logoT' src={'/logoT.png'} width={60} height={60} />
+                      <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
                     </Link>
                     <div>
                       <button
@@ -142,10 +150,14 @@ const Navbar = () => {
                     </div>
                   </div>
                   <nav>
-
                     <ul className="p-2 space-y-4">
-                      <li>
+                      <motion.li
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.1, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
                         <Link
+                          href="offer"
                           to="offer"
                           spy={true}
                           smooth={true}
@@ -157,9 +169,14 @@ const Navbar = () => {
                         >
                           Oferta
                         </Link>
-                      </li>
-                      <li>
+                      </motion.li>
+                      <motion.li
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
                         <Link
+                          href="about"
                           to="about"
                           spy={true}
                           smooth={true}
@@ -171,9 +188,14 @@ const Navbar = () => {
                         >
                           O mnie
                         </Link>
-                      </li>
-                      <li>
+                      </motion.li>
+                      <motion.li
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.3, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
                         <Link
+                          href="projects"
                           to="projects"
                           spy={true}
                           smooth={true}
@@ -185,9 +207,14 @@ const Navbar = () => {
                         >
                           Projekty
                         </Link>
-                      </li>
-                      <li>
+                      </motion.li>
+                      <motion.li
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.4, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
                         <Link
+                          href="contact"
                           to="contact"
                           spy={true}
                           smooth={true}
@@ -199,7 +226,7 @@ const Navbar = () => {
                         >
                           Kontakt
                         </Link>
-                      </li>
+                      </motion.li>
                     </ul>
                   </nav>
                 </div>

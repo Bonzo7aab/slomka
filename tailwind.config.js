@@ -31,7 +31,7 @@ module.exports = {
       keyframes: {
         hide: {
           '0%': { height: '100%', opacity: 1 },
-          '60%': { opacity: 0 },
+          '60%': { height: '100%', opacity: 0 },
           '100%': { height: '0%', opacity: 0 },
         },
         blur: {

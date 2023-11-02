@@ -1,3 +1,5 @@
+import { motion } from "framer-motion"
+
 export default function Attributes(){
     return (
         <section className="max-w-6xl px-8 mx-auto md:py-10 sm:px-6 lg:px-8 lg:py-14">
@@ -18,7 +20,19 @@ export default function Attributes(){
                                 </svg>
 
                                 <span className="text-sm text-gray-400 sm:text-base">
-                                    <span className="font-bold text-cp0-400">Bez zmartwień</span> – całkowita obsługa po mojej stronie
+                                    <motion.span 
+                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
+                                        transition={{ 
+                                            duration: 2,
+                                            ease: "easeInOut",
+                                            times: [0, 0.2, 0.5, 0.8, 1],
+                                            repeat: Infinity
+                                         }}
+                                        className="font-bold text-cp0-400"
+                                    >
+                                        Bez zmartwień
+                                    </motion.span>
+                                    <span> – całkowita obsługa po mojej stronie</span>
                                 </span>
                             </li>
 
@@ -29,7 +43,20 @@ export default function Attributes(){
                                 </svg>
 
                                 <span className="text-sm text-gray-400 sm:text-base">
-                                    Wideo i zdjęcia w <span className="font-bold text-cp0-400">najwyższej jakości</span>
+                                    <span>Wideo i zdjęcia w </span> 
+                                    <motion.span 
+                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
+                                        transition={{ 
+                                            duration: 2,
+                                            delay: 0.6,
+                                            ease: "easeInOut",
+                                            times: [0, 0.2, 0.5, 0.8, 1],
+                                            repeat: Infinity
+                                        }}
+                                        className="font-bold text-cp0-400"
+                                    >
+                                        najwyższej jakości
+                                    </motion.span>
                                 </span>
                             </li>
 
@@ -40,7 +67,20 @@ export default function Attributes(){
                                 </svg>
 
                                 <span className="text-sm text-gray-400 sm:text-base">
-                                    Zawsze <span className="font-bold text-cp0-400">w terminie</span>
+                                    <span>Zawsze </span> 
+                                    <motion.span 
+                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
+                                        transition={{ 
+                                            duration: 2,
+                                            delay: 0.2,
+                                            ease: "easeInOut",
+                                            times: [0, 0.2, 0.5, 0.8, 1],
+                                            repeat: Infinity
+                                        }}
+                                        className="font-bold text-cp0-400"
+                                    >
+                                        w terminie
+                                    </motion.span>
                                 </span>
                             </li>
                         </ul>
@@ -49,17 +89,29 @@ export default function Attributes(){
 
                 <div className="lg:col-span-7">
                     <div className="grid items-center grid-cols-12 gap-2 sm:gap-6 lg:-translate-x-10">
-                        <div className="col-span-4">
+                        <motion.div
+                            initial={{ rotateY: 540 }}
+                            transition={{ delay: 0.1, duration: 1.5, ease: "easeInOut" }}
+                            whileInView={{ rotateY: 0 }}
+                            className="col-span-4">
                             <img className="border-2 border-cp0-600 rounded-xl drop-shadow-md" src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1981&q=80" alt="Image Description" />
-                        </div>
+                        </motion.div>
 
-                        <div className="col-span-3">
+                        <motion.div
+                            initial={{ rotateY: 360 }}
+                            transition={{ delay: 0.3, duration: 1.2, ease: "easeInOut" }}
+                            whileInView={{ rotateY: 0 }}
+                            className="col-span-3">
                             <img className="border-2 border-cp0-600 rounded-xl drop-shadow-md" src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description" />
-                        </div>
+                        </motion.div>
 
-                        <div className="col-span-5">
+                        <motion.div
+                            initial={{ rotateY: 180 }}
+                            transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
+                            whileInView={{ rotateY: 0 }}
+                            className="col-span-5">
                             <img className="border-2 border-cp0-600 rounded-xl drop-shadow-md" src="https://images.unsplash.com/photo-1600194992440-50b26e0a0309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" alt="Image Description" />
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>

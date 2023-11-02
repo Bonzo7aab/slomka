@@ -5,9 +5,7 @@ const Footer = () => {
     return (
         <footer className="w-full bg-black">
             <div className="container flex flex-col items-center justify-between p-4 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
-                <a href="#">
-                    <Image alt='logoT' src={'/logoT.png'} width={60} height={100} />
-                </a>
+                <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={100} />
 
                 <div className="flex">
                     <a href="https://www.facebook.com/michalslomkafilmbusters" className="mx-2 text-gray-300 transition-colors duration-300 hover:text-cp0-500" aria-label="Facebook">
