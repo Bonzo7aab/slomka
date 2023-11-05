@@ -23,7 +23,7 @@ export default function About(){
                     initial={{ opacity: 0, scale: 0.9 }}
                     transition={{ delay: 0.3, duration: 1, ease: "easeInOut" }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    className="block object-cover mx-auto border-2 md:rounded-full drop-shadow-md shrink-0 w-96 h-96 border-cp0-600" src="/slomkaProfile.jpg" alt="profile"/>
+                    className="block object-cover mx-auto border-2 md:rounded-full drop-shadow-md shrink-0 w-96 h-96 border-cp0-600" src="/slomkaProfile.png" alt="profile"/>
             </div>
         </section>
     )

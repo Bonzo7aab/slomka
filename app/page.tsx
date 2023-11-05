@@ -11,7 +11,7 @@ import Attributes from "./cechy/page"
 const Hero = () => {
     return (
         <section id="home" className="w-full mt-24">
-            <img className="w-full" src="/tlo.jpg" alt="tlo" />
+            <img className="w-full" src="/tlo.png" alt="tlo" />
         </section>
     )
 }
@@ -19,9 +19,7 @@ const Hero = () => {
 const MozaikItem = ({text, description, src}: {text: string, description: string, src: string}) => {
     return (
         <div className="relative block h-48 overflow-hidden duration-200 border-2 border-black md:h-auto group rounded-xl hover:drop-shadow-md hover:border-cp0-500">
-            <div className="overflow-hidden aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl">
-                <img className="object-cover w-full transition-transform duration-500 ease-in-out group-hover:scale-105 rounded-xl" src={src} alt="Image Description" />
-            </div>
+            <img className="object-cover w-full transition-transform group-hover:scale-105 rounded-xl" src={src} alt="Image Description" />
 
             <div className="absolute top-0 right-0 p-2 duration-300 sm:p-4 group-hover:opacity-0">
                 <div className="p-4 text-sm font-bold bg-black rounded-lg text-cp0-500 md:text-xl">

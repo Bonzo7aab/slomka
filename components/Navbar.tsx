@@ -10,7 +10,7 @@ const Navbar = () => {
 
     return (
 
-      <nav className="fixed z-10 w-full py-4 mx-auto text-white bg-black font-rubik">
+      <nav className="fixed z-10 w-full py-4 mx-auto text-white bg-black font-lato">
         <div className="relative flex justify-center text-xl">
 
           <ul className="items-center hidden gap-3 space-x-8 lg:flex md:flex">
@@ -121,7 +121,7 @@ const Navbar = () => {
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full -mt-4">
                 <div className="p-5 text-white bg-black border rounded shadow-sm border-cp0-400">
-                  <div className="flex items-center justify-between mb-4 px-2">
+                  <div className="flex items-center justify-between px-2 mb-4">
                     <Link
                       href="home"
                       to="home"

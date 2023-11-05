@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        rubik: ['var(--font-rubik)']
+        lato: ['var(--font-lato)']
       },
       colors: {
         'cp0': {
