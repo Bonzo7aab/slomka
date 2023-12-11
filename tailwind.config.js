@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        rubik: ['var(--font-rubik)']
+        lato: ['var(--font-lato)']
       },
       colors: {
         'cp0': {
@@ -18,7 +18,11 @@ module.exports = {
           600: '#B89900'
         }
       },
+      boxShadow: {
+        '2sm': '0 0 10px rgb(184, 153, 0)',
+      },
       dropShadow: {
+        'sm': '0 1px 3px rgb(184, 153, 0)',
         'md': '0 10px 10px rgb(184, 153, 0)',
         'xl': '0 35px 35px rgb(184, 153, 0)'
       },
@@ -26,7 +30,7 @@ module.exports = {
         hideIntro: 'hide 0.9s ease-in-out forwards',
         logoBlur: 'blur 10s ease-in-out infinite',
         gradient: 'animatedgradient 6s ease infinite alternate',
-        shadow: "shadow 8s ease infinite alternate",
+        shadow: "shadow 8s ease infinite alternate"
       },
       keyframes: {
         hide: {

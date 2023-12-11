@@ -1,7 +1,5 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { SectionTitle } from "../helper";
+import { MotionDiv } from "@/components/Motion";
+import SectionTitle from "./SectionTitle";
 
 export default function Contact(){
     return (
@@ -10,7 +8,7 @@ export default function Contact(){
 
             <div className="container px-6 pb-12 mx-auto">
                 <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-2">
-                    <motion.div
+                    <MotionDiv
                         initial={{ opacity: 0, x: -100 }}
                         transition={{ delay: 0.1, duration: 0.8, ease: "easeInOut" }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -23,11 +21,10 @@ export default function Contact(){
                         </span>
 
                         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Email</h2>
-                        <p className="mt-2 text-gray-400">Odpowiem na wszystkie pytania!</p>
                         <p className="mt-2 text-cp0-400 dark:text-blue-400">michalsloma@gmail.com</p>
-                    </motion.div>
+                    </MotionDiv>
 
-                    <motion.div
+                    <MotionDiv
                         initial={{ opacity: 0, x: -100 }}
                         transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -39,9 +36,8 @@ export default function Contact(){
                         </span>
                         
                         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Telefon</h2>
-                        <p className="mt-2 text-gray-400">Codziennie od 8 do 22</p>
                         <p className="mt-2 text-cp0-400 dark:text-blue-400">+48 697 504 228</p>
-                    </motion.div>
+                    </MotionDiv>
                 </div>
             </div>
         </section>

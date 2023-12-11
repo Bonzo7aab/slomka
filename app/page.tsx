@@ -1,94 +1,28 @@
-"use client"
-
-import { motion } from "framer-motion"
-import { SectionTitle } from "./helper"
-import Contact from "./kontakt/page"
-import About from "./omnie/page"
-import Projects from "./projekty/page"
-// import Testimonials from "./referencje/page"
-import Attributes from "./cechy/page"
+import Offer from '@/components/Offer'
+import Contact from "@/components/Contact";
+import Attributes from "@/components/Attributes";
+import About from '@/components/About';
+import Link from 'next/link';
 
 const Hero = () => {
     return (
-        <section id="home" className="w-full mt-24">
-            <img className="w-full" src="/tlo.jpg" alt="tlo" />
-        </section>
-    )
-}
-
-const MozaikItem = ({text, description, src}: {text: string, description: string, src: string}) => {
-    return (
-        <div className="relative block h-48 overflow-hidden duration-200 border-2 border-black md:h-auto group rounded-xl hover:drop-shadow-md hover:border-cp0-500">
-            <div className="overflow-hidden aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl">
-                <img className="object-cover w-full transition-transform duration-500 ease-in-out group-hover:scale-105 rounded-xl" src={src} alt="Image Description" />
-            </div>
-
-            <div className="absolute top-0 right-0 p-2 duration-300 sm:p-4 group-hover:opacity-0">
-                <div className="p-4 text-sm font-bold bg-black rounded-lg text-cp0-500 md:text-xl">
-                    {text}
+        <section id="home" className="relative w-full mt-24">
+            <img className="w-full duration-700 opacity-60 hover:blur-sm" src="/tlo.png" alt="tlo" />
+            <div className='absolute flex flex-col p-2 font-bold tracking-wider text-center duration-700 transform -translate-x-1/2 -translate-y-1/2 border-2 md:p-8 w-max hover:backdrop-blur-none text-cp0-500 border-cp0-600 top-1/2 left-1/2 backdrop-blur-sm'>
+                <div className='mb-2 text-sm md:mb-8 md:text-4xl'>Usługi filmowe</div>
+                <div className='flex flex-col gap-2 text-base tracking-wide md:gap-4 md:text-5xl'>
+                    <p>VIDEO</p>
+                    <p>DRON</p>
+                    <p>MONTAŻ</p>
                 </div>
-            </div>
 
-            <div className="absolute inset-x-0 top-0 bottom-0 flex flex-col items-center justify-center px-4 duration-300 bg-gray-800 opacity-0 group-hover:opacity-90 group-click:opacity-90">
-                <span className="mb-2 text-2xl font-bold text-cp0-300">{text}</span>
-                <span className="text-center text-white">{description}</span>
-            </div>
-
-        </div>
-    )
-}
-const MozaikGallery = () => {
-    return (
-        <section id="offer" className="flex flex-col max-w-6xl mx-auto">
-
-            <SectionTitle title={"MOJA OFERTA"} />
-
-            <div className="grid gap-8 px-4 sm:grid-cols-12 sm:px-6 lg:px-8 lg:py-14">
-                <motion.div 
-                    initial={{ opacity: 0 }}
-                    transition={{ delay: 0.1, duration: 0.8, ease: "easeInOut" }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="col-span-12 sm:self-end sm:col-span-7 md:col-span-8 lg:col-span-5 lg:col-start-3"
-                >
-                    <MozaikItem text="Usługi dronem" description="Filmowanie z powietrza w wysokiej jakości plus montaż. Zarówno w dzień jak i w nocy." src="/mosaik6.jpg"/>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="col-span-12 sm:self-end sm:col-span-5 md:col-span-4 lg:col-span-3"
-                >
-                    <MozaikItem text="Edycja wideo" description="Edycja podesłanych materiałów oraz obróbka na potrzeby klienta." src="/mosaik4.jpg"/>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="col-span-12 md:col-span-4"
-                >
-                    <MozaikItem text="Eventy" description="Całościowa i kompletna obsługa różnych eventów zawierająca zaróno filmowanie, fotografia jak i filmowanie z drona. " src="/mosaik3.jpg"/>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    transition={{ delay: 0.7, duration: 0.8, ease: "easeInOut" }}
-                    whileInView={{ opacity: 1 }} 
-                    viewport={{ once: true }}
-                    className="col-span-12 sm:col-span-6 md:col-span-4"
-                >
-                    <MozaikItem text="Wesela" description="Filmowanie oraz fotografia przyjęć weselnych, plus na życzenie filmowanie z drona." src="/mosaik1.jpg"/>
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    transition={{ delay: 0.9, duration: 0.8, ease: "easeInOut" }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                    className="col-span-12 sm:col-span-6 md:col-span-4"
-                >
-                    <MozaikItem text="Filmy produktowe" description="Montaż filmów produktowych od A do Z." src="/mosaik5.jpg"/>
-                </motion.div>
+                <Link href='#offer'>
+                    <div className='absolute hidden p-3 duration-300 rounded-md cursor-pointer -bottom-8 left-2/3 bg-cp0-500 group md:block'>
+                        <svg fill="#000000" height="25px" width="25px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <polygon points="289.7,341.3 289.7,0 204.3,0 204.3,341.3 33.7,170.7 33.7,298.7 247,512 460.3,298.7 460.3,170.7 "/>
+                        </svg>
+                    </div>
+                </Link>
             </div>
         </section>
     )
@@ -98,11 +32,9 @@ export default function Home() {
     return (
         <div className="flex flex-col gap-16 bg-black lg:gap-32">
             <Hero />
-            <MozaikGallery />
+            <Offer />
             <About />
             <Attributes />
-            <Projects />
-            {/* <Testimonials /> */}
             <Contact />
         </div>
     )

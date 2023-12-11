@@ -1,0 +1,148 @@
+"use client"
+
+import { Dispatch, SetStateAction, useState } from "react";
+import ReactPlayer from "react-player/youtube";
+import Image from "next/image";
+import Link from "next/link";
+import { drone, videos, weddings } from "@/app/_data";
+import SectionTitle from "./SectionTitle";
+
+const VideoItem = (
+    { 
+        data: { id, url, thumbnail },
+        currentlyPlaying,
+        setCurrentlyPlaying
+    } : {
+        data: { id: number, url: string, thumbnail: string },
+        currentlyPlaying: number,
+        setCurrentlyPlaying: Dispatch<SetStateAction<number>>
+    }) => {
+    return (
+        <div 
+            className="relative border-2 cursor-pointer aspect-video border-cp0-300"
+            onClick={() => setCurrentlyPlaying(id)}
+        >
+            <Image className='object-cover duration-300 opacity-50 hover:opacity-30' fill src={thumbnail} alt='thumbnail'/>
+            {currentlyPlaying === id ? 
+                <div className="absolute p-1 text-sm font-semibold text-black duration-300 transform -translate-x-1/2 -translate-y-1/2 rounded-sm md:text-lg top-1/2 left-1/2 bg-cp0-300 animate-pulse">Odtwarzanie</div>
+            : 
+                <div className='absolute duration-300 transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[30px] md:w-[50px] h-[30px] md:h-[50px]'>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="#fcd100" version="1.1" id="Capa_1" viewBox="0 0 408.221 408.221">
+                        <g>
+                            <g>
+                                <path d="M204.11,0C91.388,0,0,91.388,0,204.111c0,112.725,91.388,204.11,204.11,204.11c112.729,0,204.11-91.385,204.11-204.11    C408.221,91.388,316.839,0,204.11,0z M286.547,229.971l-126.368,72.471c-17.003,9.75-30.781,1.763-30.781-17.834V140.012    c0-19.602,13.777-27.575,30.781-17.827l126.368,72.466C303.551,204.403,303.551,220.217,286.547,229.971z"/>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
+            }
+        </div>
+    )
+}
+
+const VideoDivider = () => 
+    <div className="w-full mx-auto my-8 md:my-16 md:w-2/3">
+        <hr className="border-t border-cp0-500 opacity-20" />
+        <hr className="my-4 border-t-2 opacity-30 border-cp0-500 animate-pulse" />
+        <hr className="border-t border-cp0-500 opacity-20" />
+    </div>
+
+const Offer = () => {
+    const [play, setPlay] = useState(false);
+    const [currentlyPlayingVideo, setCurrentlyPlayingVideo] = useState(0);
+    const [currentlyPlayingDrone, setCurrentlyPlayingDrone] = useState(100);
+    const [currentlyPlayingWedding, setCurrentlyPlayingWedding] = useState(200);
+
+    return (
+        <section id="offer" className="flex flex-col gap-4">
+            <SectionTitle title="OFERTA" />
+
+            <div id="video" className="container flex flex-col gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
+                <div
+                    className="md:w-1/2 aspect-video" 
+                    onMouseEnter={() => setPlay(true)} 
+                    onMouseLeave={() => setPlay(false)}
+                >
+                    <ReactPlayer
+                        width="100%"
+                        height="100%"
+                        playing={play}
+                        url={videos[currentlyPlayingVideo].url}
+                    />
+                </div>
+                <div className='grid grid-rows-2 md:w-1/2'>
+                    <div className="text-white">
+                        <div className='flex justify-between mb-4 font-extrabold'>
+                            <div className="flex items-center text-2xl title-font text-cp0-500">Video</div>
+                            <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
+                        </div>
+                        <p className="text-base leading-relaxed">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
+                    </div>
+                    <div className="grid items-end grid-cols-3 gap-2 text-white">
+                        {videos.map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingVideo} setCurrentlyPlaying={setCurrentlyPlayingVideo} />)}
+                    </div>
+                </div>
+            </div>
+
+            <VideoDivider />
+
+            <div id="drone" className="container flex flex-col-reverse gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
+                <div className='grid grid-rows-2 md:w-1/2'>
+                    <div className="text-white">
+                        <div className='flex justify-between mb-4 font-extrabold'>
+                            <div className="flex items-center text-2xl title-font text-cp0-500">Dron</div>
+                            <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
+                        </div>
+                        <p className="text-base leading-relaxed">Filmowanie z powietrza w wysokiej jakości plus montaż. Zarówno w dzień jak i w nocy.</p>
+                    </div>
+                    <div className="grid items-end grid-cols-3 gap-2 text-white">
+                        {drone.map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingDrone} setCurrentlyPlaying={setCurrentlyPlayingDrone} />)}
+                    </div>
+                </div>
+                <div
+                    className="md:w-1/2 aspect-video" 
+                    onMouseEnter={() => setPlay(true)} 
+                    onMouseLeave={() => setPlay(false)}
+                >
+                    <ReactPlayer
+                        width="100%"
+                        height="100%"
+                        // playing={play}
+                        url={drone[drone.findIndex(vid => vid.id === currentlyPlayingDrone)].url}
+                    />
+                </div>
+            </div>
+
+            <VideoDivider />
+            
+            <div id="editing" className="container flex flex-col gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
+                <div
+                    className="md:w-1/2 aspect-video" 
+                    onMouseEnter={() => setPlay(true)} 
+                    onMouseLeave={() => setPlay(false)}
+                >
+                    <ReactPlayer
+                        width="100%"
+                        height="100%"
+                        // playing={play}
+                        url={weddings[weddings.findIndex(vid => vid.id === currentlyPlayingWedding)].url}
+                    />
+                </div>
+                <div className='grid grid-rows-2 md:w-1/2'>
+                    <div className="text-white">
+                        <div className='flex justify-between mb-4 font-extrabold'>
+                            <div className="flex items-center text-2xl title-font text-cp0-500">Montaż</div>
+                            <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
+                        </div>
+                        <p className="text-base leading-relaxed">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
+                    </div>
+                    <div className="grid items-end grid-cols-3 gap-2 text-white">
+                        {weddings.map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingWedding} setCurrentlyPlaying={setCurrentlyPlayingWedding} />)}
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
+
+export default Offer;

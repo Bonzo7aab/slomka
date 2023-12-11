@@ -1,136 +1,140 @@
 "use client"
 
+import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
+import Link from 'next/link'
 import Image from 'next/image';
-import { motion } from "framer-motion"
-import { Link } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
+import { MotionLi } from './Motion';
 
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+    const pathname = usePathname()
     return (
 
-      <nav className="fixed z-10 w-full py-4 mx-auto text-white bg-black font-rubik">
+      <nav className="fixed z-10 w-full py-4 mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
         <div className="relative flex justify-center text-xl">
 
-          <ul className="items-center hidden gap-3 space-x-8 lg:flex md:flex">
-            <li>
-              <Link
-                href='offer'
-                to="offer"
-                spy={true}
-                smooth={true}
-                duration={500}
-                title="Oferta"
-                offset={-120}
-                className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-              >
-                Oferta
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='about'
-                to="about"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-120}
-                title="O mnie"
-                className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-              >
-                O mnie
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='home'
-                to="home"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-120}
-              >
-                  <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='projects'
-                to="projects"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-120}
-                title="Projekty"
-                className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-              >
-                Projekty
-              </Link>
-            </li>
-            <li>
-              <Link
-                href='contact'
-                to="contact"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-120}
-                title="Kontakt"
-                className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-              >
-                Kontakt
-              </Link>
-            </li>
-          </ul>
+          {pathname === '/filmy'
+            ? 
+              <ul className='items-center hidden gap-6 md:flex'>
+                <li className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
+                  <Link href={'/'}>Powrót</Link>
+                </li>
+                <li>
+                  <Link href={'/'}>
+                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
+                  </Link>
+                </li>
+              </ul>
+            :
+              <ul className="items-center hidden gap-3 space-x-8 lg:flex md:flex">
+                <li>
+                  <ScrollLink
+                    to="video"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-120}
+                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
+                  >
+                    Video
+                  </ScrollLink>
+                </li>
+                <li>
+                  <ScrollLink
+                    to="drone"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-120}
+                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
+                  >
+                    Dron
+                  </ScrollLink>
+                </li>
+                <li>
+                  <ScrollLink
+                    to="editing"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-120}
+                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
+                  >
+                    Montaż
+                  </ScrollLink>
+                </li>
+                <li>
+                  <Link href={'/'}>
+                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
+                  </Link>
+                </li>
+                <li>
+                  <ScrollLink
+                    to="about"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-120}
+                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
+                  >
+                    O mnie
+                  </ScrollLink>
+                </li>
+                <li>
+                  <ScrollLink
+                    to="contact"
+                    spy={true}
+                    smooth={true}
+                    duration={500}
+                    offset={-120}
+                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
+                  >
+                    Kontakt
+                  </ScrollLink>
+                </li>
+              </ul>
+          }
           <div className="w-full md:hidden">
-            <div className='flex justify-between px-4'>
-              <Link
-                href='home'
-                to="home"
-                spy={true}
-                smooth={true}
-                duration={500}
-                offset={-120}
-                title='Strona Główna'
-              >
-                  <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
+            <div className='flex items-center justify-between px-4'>
+              <Link href={'/'}>
+                <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
               </Link>
-              <button
-                aria-label="Open Menu"
-                title="Open Menu"
-                className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
-                onClick={() => setIsMenuOpen(true)}
-              >
-                <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
-                  <path
-                    fill="currentColor"
-                    d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                  />
-                  <path
-                    fill="currentColor"
-                    d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                  />
-                </svg>
-              </button>
+              {pathname === '/filmy'
+                ? 
+                  <div className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
+                    <Link href={'/'}>Powrót</Link>
+                  </div>
+                :
+                  <button
+                    aria-label="Open Menu"
+                    title="Open Menu"
+                    className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+                    onClick={() => setIsMenuOpen(true)}
+                  >
+                    <svg className="w-5 text-gray-600" viewBox="0 0 24 24">
+                      <path
+                        fill="currentColor"
+                        d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                      />
+                      <path
+                        fill="currentColor"
+                        d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                      />
+                      <path
+                        fill="currentColor"
+                        d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                      />
+                    </svg>
+                  </button>
+              }
             </div>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full -mt-4">
                 <div className="p-5 text-white bg-black border rounded shadow-sm border-cp0-400">
-                  <div className="flex items-center justify-between mb-4 px-2">
-                    <Link
-                      href="home"
-                      to="home"
-                      spy={true}
-                      smooth={true}
-                      duration={500}
-                      offset={-120}
-                      title='Strona Główna'
-                    >
+                  <div className="flex items-center justify-between px-2 mb-4">
+                    <Link href={'/'}>
                       <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
                     </Link>
                     <div>
@@ -151,32 +155,63 @@ const Navbar = () => {
                   </div>
                   <nav>
                     <ul className="p-2 space-y-4">
-                      <motion.li
+                      <MotionLi
                         initial={{ opacity: 0, y: -10 }}
                         transition={{ delay: 0.1, duration: 1, ease: "easeInOut" }}
                         animate={{ opacity: 1, y: 0 }}
                       >
-                        <Link
-                          href="offer"
-                          to="offer"
+                        <ScrollLink
+                          to="video"
                           spy={true}
                           smooth={true}
                           duration={500}
-                          title="Oferta"
                           offset={-120}
                           className="font-medium tracking-wide transition-colors hover:text-cp0-500"
                           onClick={() => setIsMenuOpen(false)}
                         >
-                          Oferta
-                        </Link>
-                      </motion.li>
-                      <motion.li
+                          Video
+                        </ScrollLink>
+                      </MotionLi>
+                      <MotionLi
                         initial={{ opacity: 0, y: -10 }}
                         transition={{ delay: 0.2, duration: 1, ease: "easeInOut" }}
                         animate={{ opacity: 1, y: 0 }}
                       >
-                        <Link
-                          href="about"
+                        <ScrollLink
+                          to="drone"
+                          spy={true}
+                          smooth={true}
+                          duration={500}
+                          offset={-120}
+                          className="font-medium tracking-wide transition-colors hover:text-cp0-500"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Dron
+                        </ScrollLink>
+                      </MotionLi>
+                      <MotionLi
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.3, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <ScrollLink
+                          to="editing"
+                          spy={true}
+                          smooth={true}
+                          duration={500}
+                          offset={-120}
+                          className="font-medium tracking-wide transition-colors hover:text-cp0-500"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Montaż
+                        </ScrollLink>
+                      </MotionLi>
+                      <MotionLi
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.4, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <ScrollLink
                           to="about"
                           spy={true}
                           smooth={true}
@@ -187,34 +222,14 @@ const Navbar = () => {
                           onClick={() => setIsMenuOpen(false)}
                         >
                           O mnie
-                        </Link>
-                      </motion.li>
-                      <motion.li
+                        </ScrollLink>
+                      </MotionLi>
+                      <MotionLi
                         initial={{ opacity: 0, y: -10 }}
-                        transition={{ delay: 0.3, duration: 1, ease: "easeInOut" }}
+                        transition={{ delay: 0.5, duration: 1, ease: "easeInOut" }}
                         animate={{ opacity: 1, y: 0 }}
                       >
-                        <Link
-                          href="projects"
-                          to="projects"
-                          spy={true}
-                          smooth={true}
-                          duration={500}
-                          offset={-120}
-                          title="Projekty"
-                          className="font-medium tracking-wide transition-colors hover:text-cp0-500"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          Projekty
-                        </Link>
-                      </motion.li>
-                      <motion.li
-                        initial={{ opacity: 0, y: -10 }}
-                        transition={{ delay: 0.4, duration: 1, ease: "easeInOut" }}
-                        animate={{ opacity: 1, y: 0 }}
-                      >
-                        <Link
-                          href="contact"
+                        <ScrollLink
                           to="contact"
                           spy={true}
                           smooth={true}
@@ -225,8 +240,8 @@ const Navbar = () => {
                           onClick={() => setIsMenuOpen(false)}
                         >
                           Kontakt
-                        </Link>
-                      </motion.li>
+                        </ScrollLink>
+                      </MotionLi>
                     </ul>
                   </nav>
                 </div>

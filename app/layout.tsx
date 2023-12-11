@@ -1,15 +1,16 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter, Rubik_Mono_One } from 'next/font/google'
+import { Inter, Lato } from 'next/font/google'
 import Footer from '@/components/Footer'
 import { Intro } from '@/components/Intro'
 
 const inter = Inter({ subsets: ['latin'] })
-export const rubik = Rubik_Mono_One({
+
+const lato = Lato({
   subsets: ['latin'],
-  weight: '400',
-  variable: '--font-rubik'
+  weight: ['400', '700'],
+  variable: '--font-lato'
 })
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${rubik.variable}`}>
+      <body className={`${inter.className} ${lato.variable}`}>
         <Intro />
         <Navbar />
           {children}
