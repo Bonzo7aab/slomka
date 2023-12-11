@@ -48,7 +48,9 @@ const VideoDivider = () =>
     </div>
 
 const Offer = () => {
-    const [play, setPlay] = useState(false);
+    const [playVideo, setPlayVideo] = useState(false);
+    const [playDrone, setPlayDrone] = useState(false);
+    const [playEditing, setPlayEditing] = useState(false);
     const [currentlyPlayingVideo, setCurrentlyPlayingVideo] = useState(0);
     const [currentlyPlayingDrone, setCurrentlyPlayingDrone] = useState(100);
     const [currentlyPlayingWedding, setCurrentlyPlayingWedding] = useState(200);
@@ -60,13 +62,13 @@ const Offer = () => {
             <div id="video" className="container flex flex-col gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
                 <div
                     className="md:w-1/2 aspect-video" 
-                    onMouseEnter={() => setPlay(true)} 
-                    onMouseLeave={() => setPlay(false)}
+                    onMouseEnter={() => setPlayVideo(true)} 
+                    onMouseLeave={() => setPlayVideo(false)}
                 >
                     <ReactPlayer
                         width="100%"
                         height="100%"
-                        playing={play}
+                        playing={playVideo}
                         url={videos[currentlyPlayingVideo].url}
                     />
                 </div>
@@ -101,13 +103,13 @@ const Offer = () => {
                 </div>
                 <div
                     className="md:w-1/2 aspect-video" 
-                    onMouseEnter={() => setPlay(true)} 
-                    onMouseLeave={() => setPlay(false)}
+                    onMouseEnter={() => setPlayDrone(true)} 
+                    onMouseLeave={() => setPlayDrone(false)}
                 >
                     <ReactPlayer
                         width="100%"
                         height="100%"
-                        // playing={play}
+                        playing={playDrone}
                         url={drone[drone.findIndex(vid => vid.id === currentlyPlayingDrone)].url}
                     />
                 </div>
@@ -118,13 +120,13 @@ const Offer = () => {
             <div id="editing" className="container flex flex-col gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
                 <div
                     className="md:w-1/2 aspect-video" 
-                    onMouseEnter={() => setPlay(true)} 
-                    onMouseLeave={() => setPlay(false)}
+                    onMouseEnter={() => setPlayEditing(true)} 
+                    onMouseLeave={() => setPlayEditing(false)}
                 >
                     <ReactPlayer
                         width="100%"
                         height="100%"
-                        // playing={play}
+                        playing={playEditing}
                         url={weddings[weddings.findIndex(vid => vid.id === currentlyPlayingWedding)].url}
                     />
                 </div>
