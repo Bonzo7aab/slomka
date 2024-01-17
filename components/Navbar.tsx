@@ -7,96 +7,57 @@ import Image from 'next/image';
 import { Link as ScrollLink } from 'react-scroll';
 import { MotionLi } from './Motion';
 
+const NavListItem = ({ to, name }: { to: string, name: string}) => 
+  <li>
+    <ScrollLink
+      to={to}
+      spy={true}
+      smooth={true}
+      duration={500}
+      offset={-120}
+      className="font-medium tracking-wide uppercase duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
+    >
+      {name}
+    </ScrollLink>
+  </li>
+
 const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname()
     return (
 
-      <nav className="fixed z-10 w-full py-4 mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
-        <div className="relative flex justify-center text-xl">
+      <nav className="fixed z-10 flex justify-center w-full h-24 py-4 mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
+        <div className="container relative px-8 text-xl">
 
           {pathname === '/filmy'
             ? 
-              <ul className='items-center hidden gap-6 md:flex'>
+              <ul className='items-center justify-between hidden w-full gap-6 lg:flex'>
+                <li>
+                  <Link href={'/'}>
+                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
+                  </Link>
+                </li>
                 <li className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
                   <Link href={'/'}>Powrót</Link>
                 </li>
-                <li>
-                  <Link href={'/'}>
-                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
-                  </Link>
-                </li>
               </ul>
             :
-              <ul className="items-center hidden gap-3 space-x-8 lg:flex md:flex">
-                <li>
-                  <ScrollLink
-                    to="video"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-120}
-                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-                  >
-                    Video
-                  </ScrollLink>
-                </li>
-                <li>
-                  <ScrollLink
-                    to="drone"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-120}
-                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-                  >
-                    Dron
-                  </ScrollLink>
-                </li>
-                <li>
-                  <ScrollLink
-                    to="editing"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-120}
-                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-                  >
-                    Montaż
-                  </ScrollLink>
-                </li>
-                <li>
-                  <Link href={'/'}>
-                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
-                  </Link>
-                </li>
-                <li>
-                  <ScrollLink
-                    to="about"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-120}
-                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-                  >
-                    O mnie
-                  </ScrollLink>
-                </li>
-                <li>
-                  <ScrollLink
-                    to="contact"
-                    spy={true}
-                    smooth={true}
-                    duration={500}
-                    offset={-120}
-                    className="font-medium tracking-wide duration-200 cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8"
-                  >
-                    Kontakt
-                  </ScrollLink>
-                </li>
+            <div className='items-center justify-between hidden w-full lg:flex'>
+              <Link href={'/'}>
+                <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} 
+                  className='animate-logoBlur'
+                  />
+              </Link>
+              <ul className="flex space-x-8">
+                <NavListItem to='video' name='video'/>
+                <NavListItem to='drone' name='dron'/>
+                <NavListItem to='editing' name='montaż'/>
+                <NavListItem to='about' name='o mnie'/>
+                <NavListItem to='contact' name='kontakt'/>
               </ul>
+            </div>
           }
-          <div className="w-full md:hidden">
+          <div className="w-full lg:hidden">
             <div className='flex items-center justify-between px-4'>
               <Link href={'/'}>
                 <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />

@@ -4,10 +4,10 @@ import React from 'react'
 const Footer = () => {
     return (
         <footer className="w-full bg-black">
-            <div className="container flex flex-col items-center justify-between p-4 mx-auto space-y-4 sm:space-y-0 sm:flex-row">
+            <div className="container flex flex-row items-center justify-between p-4 px-8 mx-auto">
                 <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={100} />
 
-                <div className="flex">
+                <div className="flex sm:ml-16">
                     <a href="https://www.facebook.com/michalslomkafilmbusters" className="mx-2 text-gray-300 transition-colors duration-300 hover:text-cp0-500" aria-label="Facebook">
                         <svg xmlns="http://www.w3.org/2000/svg"  className="w-5 h-5 fill-current" viewBox="0 0 30 30" fill="none">
                             <path d="M15,3C8.373,3,3,8.373,3,15c0,6.016,4.432,10.984,10.206,11.852V18.18h-2.969v-3.154h2.969v-2.099c0-3.475,1.693-5,4.581-5 c1.383,0,2.115,0.103,2.461,0.149v2.753h-1.97c-1.226,0-1.654,1.163-1.654,2.473v1.724h3.593L19.73,18.18h-3.106v8.697 C22.481,26.083,27,21.075,27,15C27,8.373,21.627,3,15,3z"></path>
@@ -28,7 +28,7 @@ const Footer = () => {
                     </a>
                 </div>
 
-                <p className="text-sm text-gray-300">Made by Sadurski</p>
+                <p className="hidden text-sm text-gray-300 sm:flex">Made by Sadurski</p>
             </div>
         </footer>
     )

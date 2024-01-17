@@ -1,6 +1,47 @@
-import { MotionDiv, MotionSpan } from "@/components/Motion"
+"use client"
+
+import { MotionImg, MotionSpan } from "@/components/Motion"
+import { AnimatePresence } from "framer-motion";
+import { useEffect, useState } from "react"
+
+const BlinkText = ({ delay, text }: { delay?: number, text: string }) =>
+    <MotionSpan
+        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
+        transition={{ 
+            duration: 3,
+            delay: delay,
+            ease: "easeInOut",
+            times: [0, 0.2, 0.5, 0.8, 1],
+            repeat: Infinity
+        }}
+        className="font-bold text-cp0-400"
+        >
+        {text}
+    </MotionSpan>
+
+const MosaicItem = ({ count, id, delay = 0.1, x = 0, y = 0 }: { count: number, id: number, delay?: number, x?: number, y?: number }) => 
+    <AnimatePresence mode="wait">
+        <MotionImg
+            key={`/mosaic${count === 0 ? id : count === 1 ? id + 6 : id + 12}.jpg`}
+            src={`/mosaic${count === 0 ? id : count === 1 ? id + 6 : id + 12}.jpg`}
+            initial={{ opacity: 0, x: x, y: y }}
+            animate={{ opacity: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, x: x, y: y }}
+            transition={{ delay: delay, duration: 1, ease: "easeInOut" }}
+            className="block object-cover object-center w-full h-full"
+        />
+    </AnimatePresence>
 
 export default function Attributes(){
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCount(count === 0 ? 1 : count === 1 ? 2 : 0)
+        }, 5000);
+        return () => clearInterval(timer)
+    })
+
     return (
         <section className="max-w-6xl px-8 mx-auto md:py-10 sm:px-6 lg:px-8 lg:py-14">
             <div className="flex flex-col gap-8 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
@@ -20,19 +61,8 @@ export default function Attributes(){
                                 </svg>
 
                                 <span className="text-sm text-gray-400 sm:text-base">
-                                    <MotionSpan
-                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
-                                        transition={{ 
-                                            duration: 2,
-                                            ease: "easeInOut",
-                                            times: [0, 0.2, 0.5, 0.8, 1],
-                                            repeat: Infinity
-                                         }}
-                                        className="font-bold text-cp0-400"
-                                    >
-                                        Bez zmartwień
-                                    </MotionSpan>
-                                    <span> – całkowita obsługa po mojej stronie</span>
+                                        <BlinkText text="Bez zmartwień" delay={3} />
+                                    <span> - całkowita obsługa po mojej stronie</span>
                                 </span>
                             </li>
 
@@ -44,19 +74,7 @@ export default function Attributes(){
 
                                 <span className="text-sm text-gray-400 sm:text-base">
                                     <span>Wideo i zdjęcia w </span> 
-                                    <MotionSpan
-                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
-                                        transition={{ 
-                                            duration: 2,
-                                            delay: 0.6,
-                                            ease: "easeInOut",
-                                            times: [0, 0.2, 0.5, 0.8, 1],
-                                            repeat: Infinity
-                                        }}
-                                        className="font-bold text-cp0-400"
-                                    >
-                                        najwyższej jakości
-                                    </MotionSpan>
+                                    <BlinkText text="najwyższej jakości" delay={2} />
                                 </span>
                             </li>
 
@@ -68,19 +86,7 @@ export default function Attributes(){
 
                                 <span className="text-sm text-gray-400 sm:text-base">
                                     <span>Zawsze </span> 
-                                    <MotionSpan
-                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
-                                        transition={{ 
-                                            duration: 2,
-                                            delay: 0.2,
-                                            ease: "easeInOut",
-                                            times: [0, 0.2, 0.5, 0.8, 1],
-                                            repeat: Infinity
-                                        }}
-                                        className="font-bold text-cp0-400"
-                                    >
-                                        w terminie
-                                    </MotionSpan>
+                                    <BlinkText text="w terminie" delay={4} />
                                 </span>
                             </li>
 
@@ -91,19 +97,7 @@ export default function Attributes(){
                                 </svg>
 
                                 <span className="text-sm text-gray-400 sm:text-base">
-                                    <MotionSpan
-                                        animate={{ opacity: [1, 0.7, 1], color: ["#FFDD33", "#B89900", "#FFDD33"]}}
-                                        transition={{ 
-                                            duration: 2,
-                                            delay: 0.2,
-                                            ease: "easeInOut",
-                                            times: [0, 0.2, 0.5, 0.8, 1],
-                                            repeat: Infinity
-                                        }}
-                                        className="font-bold text-cp0-400"
-                                    >
-                                        Indiwidualne
-                                    </MotionSpan>
+                                    <BlinkText text="Indiwidualne" delay={3} />
                                     <span> podejście do klienta</span> 
                                 </span>
                             </li>
@@ -111,60 +105,28 @@ export default function Attributes(){
                     </div>
                 </div>
 
-                <div className="lg:col-span-7">
-                    <div className="container flex flex-wrap mx-auto">
-                        <div className="flex flex-wrap -m-1 md:-m-2">
-                            <div className="flex flex-wrap w-1/2">
-                                <MotionDiv
-                                    initial={{ opacity: 0 }}
-                                    transition={{ delay: 0.1, duration: 0.8, ease: "easeInOut" }}
-                                    whileInView={{ opacity: 1 }}
-                                    className="w-1/2 p-1 md:p-2"
-                                >
-                                    <img alt="gallery" className="block object-cover object-center w-full h-full" src="/attr1.jpg" />
-                                </MotionDiv>
-                                <MotionDiv
-                                    initial={{ opacity: 0 }}
-                                    transition={{ delay: 0.2, duration: 0.8, ease: "easeInOut" }}
-                                    whileInView={{ opacity: 1 }}
-                                    className="w-1/2 p-1 md:p-2"
-                                >
-                                    <img alt="gallery" className="block object-cover object-center w-full h-full" src="/attr2.jpg" />
-                                </MotionDiv>
-                                <MotionDiv
-                                    initial={{ opacity: 0 }}
-                                    transition={{ delay: 0.3, duration: 0.8, ease: "easeInOut" }}
-                                    whileInView={{ opacity: 1 }}
-                                    className="w-full p-1 md:p-2"
-                                >
-                                    <img alt="gallery" className="block object-cover object-center w-full h-full" src="/attr3.jpg" />
-                                </MotionDiv>
+                <div className="relative flex lg:col-span-7">
+                    <div className="flex flex-wrap h-60 sm:h-64 lg:h-[432px]">
+                        <div className="flex flex-wrap w-40 h-60 sm:w-56 sm:h-64 lg:w-1/2">
+                            <div className="w-20 h-20 p-1 sm:w-28 sm:h-28 lg:w-36 lg:h-36 md:p-2">
+                                <MosaicItem id={1} count={count} delay={0.2} x={-10} y={-10}/>
                             </div>
-                            <div className="flex flex-wrap w-1/2">
-                                <MotionDiv
-                                    initial={{ opacity: 0 }}
-                                    transition={{ delay: 0.4, duration: 0.8, ease: "easeInOut" }}
-                                    whileInView={{ opacity: 1 }}
-                                    className="w-full p-1 md:p-2"
-                                >
-                                    <img alt="gallery" className="block object-cover object-center w-full h-full" src="/attr4.jpg" />
-                                </MotionDiv>
-                                <MotionDiv
-                                    initial={{ opacity: 0 }}
-                                    transition={{ delay: 0.5, duration: 0.8, ease: "easeInOut" }}
-                                    whileInView={{ opacity: 1 }}
-                                    className="w-1/2 p-1 md:p-2"
-                                >
-                                    <img alt="gallery" className="block object-cover object-center w-full h-full" src="/attr5.jpg" />
-                                </MotionDiv>
-                                <MotionDiv
-                                    initial={{ opacity: 0 }}
-                                    transition={{ delay: 0.6, duration: 0.8, ease: "easeInOut" }}
-                                    whileInView={{ opacity: 1 }}
-                                    className="w-1/2 p-1 md:p-2"
-                                >
-                                    <img alt="gallery" className="block object-cover object-center w-full h-full" src="/attr6.jpg" />
-                                </MotionDiv>
+                            <div className="w-20 h-20 p-1 sm:w-28 sm:h-28 lg:w-36 lg:h-36 md:p-2">
+                                <MosaicItem id={2} count={count} delay={0.5} y={-20}/>
+                            </div>
+                            <div className="w-40 h-40 p-1 sm:w-56 sm:h-w-56 lg:w-72 lg:h-72 md:p-2">
+                                <MosaicItem id={3} count={count} delay={0.1} x={-10} y={10}/>
+                            </div>
+                        </div>
+                        <div className="flex flex-wrap w-40 h-60 sm:w-56 sm:h-64 lg:w-1/2">
+                            <div className="w-40 h-40 p-1 sm:w-56 sm:h-w-56 lg:w-72 lg:h-72 md:p-2">
+                                <MosaicItem id={4} count={count} delay={0.4} x={10} y={-10}/>
+                            </div>
+                            <div className="w-20 h-20 p-1 sm:w-28 sm:h-28 lg:w-36 lg:h-36 md:p-2">
+                                <MosaicItem id={5} count={count} delay={0.7} y={20}/>
+                            </div>
+                            <div className="w-20 h-20 p-1 sm:w-28 sm:h-28 lg:w-36 lg:h-36 md:p-2">
+                                <MosaicItem id={6} count={count} delay={0.2} x={10} y={10}/>
                             </div>
                         </div>
                     </div>
