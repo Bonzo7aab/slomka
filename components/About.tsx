@@ -43,6 +43,7 @@ export default function About(){
                     <li className="text-cp0-400"><span className="text-white">teledyski - usługi dla firm (wywiady, filmy wewnątrz-firmowe)</span></li>
                     <li className="text-cp0-400"><span className="text-white">Social media</span></li>
                     <li className="text-cp0-400"><span className="text-white">obsługa promptera</span></li>
+                    <li className="text-cp0-400"><span className="text-white">filmy produktowe</span></li>
                     <br />
                     Posiadam stację montażową w formie stacjonarnej jak i mobilnej dzięki czemu moja współpraca z klientem jest wygodniejsza i bardziej efektywna dla obu stron.
                     <br /><br />

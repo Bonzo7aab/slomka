@@ -25,11 +25,11 @@ const listItem = {
 
 const VideoItem = (
     { 
-        data: { id, url, thumbnail },
+        data: { id, thumbnail },
         currentlyPlaying,
         setCurrentlyPlaying
     } : {
-        data: { id: number, url: string, thumbnail: string },
+        data: { id: number, thumbnail: string },
         currentlyPlaying: number,
         setCurrentlyPlaying: Dispatch<SetStateAction<number>>
     }) => {

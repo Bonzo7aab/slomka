@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 
-export const Intro = () => {
+const Intro = () => {
     const [isVideoEnded, setIsVideoEnded] = useState(false);
 
     return (
@@ -13,3 +13,5 @@ export const Intro = () => {
         </div>
     )
 }
+
+export default Intro;

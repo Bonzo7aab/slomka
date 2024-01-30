@@ -6,13 +6,8 @@ export const videos = [
     },
     {
         id: 1,
-        url: 'https://youtu.be/ZQAIkHr_qN8?si=nLMaKMAmGOCDwfY7',
-        thumbnail: 'https://img.youtube.com/vi/ZQAIkHr_qN8/sddefault.jpg'
-    },
-    {
-        id: 2,
-        url: 'https://youtu.be/qim6FpNBGOQ?si=Jh4dbAIlPGCM6vrP',
-        thumbnail: 'https://img.youtube.com/vi/qim6FpNBGOQ/sddefault.jpg'
+        url: 'https://youtu.be/oJOYn1WvoRc?si=nLMaKMAmGOCDwfY7',
+        thumbnail: 'https://img.youtube.com/vi/oJOYn1WvoRc/sddefault.jpg'
     }
 ];
 
@@ -31,23 +26,46 @@ export const drone = [
         id: 102,
         url: 'https://youtu.be/TCgflhBZxVk?si=FVvPYxsCpr2mwJbc',
         thumbnail: 'https://img.youtube.com/vi/TCgflhBZxVk/sddefault.jpg'
+    },
+    {
+        id: 103,
+        url: 'https://youtu.be/jDf6vf-zd4c?si=FVvPYxsCpr2mwJbc',
+        thumbnail: 'https://img.youtube.com/vi/jDf6vf-zd4c/sddefault.jpg'
+    },
+    {
+        id: 104,
+        url: 'https://youtu.be/FnBSiK7-9M0?si=FVvPYxsCpr2mwJbc',
+        thumbnail: 'https://img.youtube.com/vi/FnBSiK7-9M0/sddefault.jpg'
+    },
+    {
+        id: 105,
+        url: 'https://youtu.be/gpMsp7YaziQ?si=FVvPYxsCpr2mwJbc',
+        thumbnail: 'https://img.youtube.com/vi/gpMsp7YaziQ/sddefault.jpg'
+    },
+    {
+        id: 106,
+        url: 'https://youtu.be/HCTD-r0Q7Fc?si=FVvPYxsCpr2mwJbc',
+        thumbnail: 'https://img.youtube.com/vi/HCTD-r0Q7Fc/sddefault.jpg'
+    },
+    {
+        id: 107,
+        url: 'https://youtu.be/GkHMkDzFfrk?si=FVvPYxsCpr2mwJbc',
+        thumbnail: 'https://img.youtube.com/vi/GkHMkDzFfrk/sddefault.jpg'
     }
 ];
 
 export const weddings = [
     {
         id: 200,
-        url: 'https://youtu.be/fq2CdnfijhQ?si=1tcjqoWrxx7PG2EH',
-        thumbnail: 'https://img.youtube.com/vi/fq2CdnfijhQ/sddefault.jpg'
-    },
-    {
-        id: 201,
-        url: 'https://youtu.be/PEIgbYXgKQk?si=0yRFx5OX0MBdkKRP',
-        thumbnail: 'https://img.youtube.com/vi/PEIgbYXgKQk/sddefault.jpg'
-    },
-    {
-        id: 202,
-        url: 'https://youtu.be/2aj4bk8_uQQ?si=Avtn1DJuPLAqdwhn',
-        thumbnail: 'https://img.youtube.com/vi/2aj4bk8_uQQ/sddefault.jpg'
+        url: 'https://youtu.be/TwLPMutyuBo?si=1tcjqoWrxx7PG2EH',
+        thumbnail: 'https://img.youtube.com/vi/TwLPMutyuBo/sddefault.jpg'
     }
+];
+
+export const logos = [
+    './logo1.png',
+    './logo2.png',
+    './logo3.png',
+    './logo4.png',
+    './logo5.png'
 ];

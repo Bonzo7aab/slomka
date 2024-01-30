@@ -78,10 +78,11 @@ const Offer = () => {
                             <div className="flex items-center text-2xl title-font text-cp0-500">Video</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
+                        <p className="text-base leading-relaxed">Podczas realizowania treści video skupiam sie zarówno na detalach jak i ogólnym kształcie tego co mam ograć. Zawsze staram się omawiać z klientem jego wizję co do finałowego wyglądu nagrań.
+Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to również kieruje się dbaniem o szczegóły z myślą „zrób to tak jakbyś miał zrobić to najlepiej dla siebie”.</p>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 text-white">
-                        {videos.map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingVideo} setCurrentlyPlaying={setCurrentlyPlayingVideo} />)}
+                        {videos.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingVideo} setCurrentlyPlaying={setCurrentlyPlayingVideo} />)}
                     </div>
                 </div>
             </div>
@@ -95,10 +96,13 @@ const Offer = () => {
                             <div className="flex items-center text-2xl title-font text-cp0-500">Dron</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Filmowanie z powietrza w wysokiej jakości plus montaż. Zarówno w dzień jak i w nocy.</p>
+                        <p className="text-base leading-relaxed">Dron to najmłodszy z moich usługowych doświadczeń ale już kilkukrotnie sprawdził się pozytywnie wśród klientów.
+Latam obecnie dronem Mavic Mini, który pomimo swoich gabarytów spełnia swoją rolę.
+Latając dronem wyobraźam sobie możliwie końcowy efekt jaki użyje w postprodukcji z danego ujęcia w powietrzu.
+Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywany teren dla uzyskania najlepszych efektów.</p>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 text-white">
-                        {drone.map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingDrone} setCurrentlyPlaying={setCurrentlyPlayingDrone} />)}
+                        {drone.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingDrone} setCurrentlyPlaying={setCurrentlyPlayingDrone} />)}
                     </div>
                 </div>
                 <div
@@ -136,10 +140,14 @@ const Offer = () => {
                             <div className="flex items-center text-2xl title-font text-cp0-500">Montaż</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine. Blue bottle crucifix vinyl post-ironic four dollar toast vegan taxidermy. Gastropub indxgo juice poutine.</p>
+                        <p className="text-base leading-relaxed">Jako absolwent Akademii Filmu i Telewizji z dyplomem zawodowym montażysty podejście do montażu, można w moim wypadku nazwać wręcz „przesadnym” w dobrym tego słowa znaczeniu.
+Dbałość o każdy szczegół jest wręcz detaliczny.
+Moim atutem w przypadku montażu jest słuch muzyczny jak i wyczucie rytmiki co w bardzo często się przydaje podczas postprodukcji.
+W montażu istotne jest zbudowanie odpowiedniego klimatu dla projektu a co za tym 
+idzie, wprowadzenie odpowiednich emocji dla oglądającego co uważam za montażowy priorytet.</p>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 text-white">
-                        {weddings.map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingWedding} setCurrentlyPlaying={setCurrentlyPlayingWedding} />)}
+                        {weddings.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingWedding} setCurrentlyPlaying={setCurrentlyPlayingWedding} />)}
                     </div>
                 </div>
             </div>
