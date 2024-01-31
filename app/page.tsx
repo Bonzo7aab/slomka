@@ -35,9 +35,9 @@ export default function Home() {
             <Intro />
             <Hero />
             <Offer />
-            <Logos />
             <About />
             <Attributes />
+            {/* <Logos /> */}
             <Contact />
         </div>
     )

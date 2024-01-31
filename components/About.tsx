@@ -9,12 +9,12 @@ export default function About(){
         <section id="about" className="flex flex-col">
             <SectionTitle title={"O MNIE"} />
 
-            <div className="container relative flex flex-col gap-8 px-8 mx-auto text-white bg-black md:p-16 lg:flex-row lg:items-center md:border-2 border-cp0-600 md:drop-shadow-md md:rounded-sm">
+            <div className="container relative flex flex-col gap-8 px-8 mx-auto text-lg leading-relaxed tracking-wider text-white bg-black md:p-16 lg:flex-row lg:items-center md:border-2 border-cp0-600 md:drop-shadow-md md:rounded-sm">
                 <MotionDiv 
                     initial={{ opacity: 0 }}
                     transition={{ delay: 0.1, duration: 1, ease: "easeInOut" }}
                     whileInView={{ opacity: 1 }}
-                    className="w-full text-base leading-relaxed tracking-wide lg:text-right lg:w-1/3"
+                    className="w-full lg:text-right lg:w-1/3"
                 >
                     Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
                     <br /><br />
@@ -35,7 +35,7 @@ export default function About(){
                     initial={{ opacity: 0 }}
                     transition={{ delay: 0.1, duration: 1, ease: "easeInOut" }}
                     whileInView={{ opacity: 1 }}
-                    className="w-full leading-relaxed tracking-wide lg:w-1/3"
+                    className="w-full lg:w-1/3"
                 >
                     Moje usługi:
                     <li className="text-cp0-400"><span className="text-white">wesela (w kraju jak i poza krajem)</span></li>

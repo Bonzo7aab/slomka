@@ -59,9 +59,9 @@ const Offer = () => {
         <section id="offer" className="flex flex-col gap-4">
             <SectionTitle title="OFERTA" />
 
-            <div id="video" className="container flex flex-col gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
+            <div id="video" className="flex flex-col gap-4 p-4 mx-auto lg:container border-x-4 border-cp0-600 lg:flex-row">
                 <div
-                    className="md:w-1/2 aspect-video" 
+                    className="lg:w-1/2 aspect-video" 
                     onMouseEnter={() => setPlayVideo(true)} 
                     onMouseLeave={() => setPlayVideo(false)}
                 >
@@ -72,16 +72,16 @@ const Offer = () => {
                         url={videos[currentlyPlayingVideo].url}
                     />
                 </div>
-                <div className='grid grid-rows-2 md:w-1/2'>
+                <div className='grid lg:grid-rows-2 lg:w-1/2'>
                     <div className="text-white">
                         <div className='flex justify-between mb-4 font-extrabold'>
                             <div className="flex items-center text-2xl title-font text-cp0-500">Video</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Podczas realizowania treści video skupiam sie zarówno na detalach jak i ogólnym kształcie tego co mam ograć. Zawsze staram się omawiać z klientem jego wizję co do finałowego wyglądu nagrań.
+                        <p className="text-base leading-relaxed">Podczas realizowania treści video skupiam sie zarówno na detalach jak i ogólnym kształcie tego co mam ograć. Zawsze staram się omawiać z klientem jego wizję co do finałowego wyglądu danego projektu.
 Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to również kieruje się dbaniem o szczegóły z myślą „zrób to tak jakbyś miał zrobić to najlepiej dla siebie”.</p>
                     </div>
-                    <div className="grid items-end grid-cols-3 gap-2 text-white">
+                    <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
                         {videos.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingVideo} setCurrentlyPlaying={setCurrentlyPlayingVideo} />)}
                     </div>
                 </div>
@@ -89,8 +89,8 @@ Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to równie
 
             <VideoDivider />
 
-            <div id="drone" className="container flex flex-col-reverse gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
-                <div className='grid grid-rows-2 md:w-1/2'>
+            <div id="drone" className="flex flex-col-reverse gap-4 p-4 mx-auto lg:container border-x-4 border-cp0-600 lg:flex-row">
+                <div className='grid lg:grid-rows-2 lg:w-1/2'>
                     <div className="text-white">
                         <div className='flex justify-between mb-4 font-extrabold'>
                             <div className="flex items-center text-2xl title-font text-cp0-500">Dron</div>
@@ -101,12 +101,12 @@ Latam obecnie dronem Mavic Mini, który pomimo swoich gabarytów spełnia swoją
 Latając dronem wyobraźam sobie możliwie końcowy efekt jaki użyje w postprodukcji z danego ujęcia w powietrzu.
 Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywany teren dla uzyskania najlepszych efektów.</p>
                     </div>
-                    <div className="grid items-end grid-cols-3 gap-2 text-white">
+                    <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
                         {drone.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingDrone} setCurrentlyPlaying={setCurrentlyPlayingDrone} />)}
                     </div>
                 </div>
                 <div
-                    className="md:w-1/2 aspect-video" 
+                    className="lg:w-1/2 aspect-video" 
                     onMouseEnter={() => setPlayDrone(true)} 
                     onMouseLeave={() => setPlayDrone(false)}
                 >
@@ -121,9 +121,9 @@ Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywa
 
             <VideoDivider />
             
-            <div id="editing" className="container flex flex-col gap-4 p-4 mx-auto border-x-4 border-cp0-600 sm:flex-row">
+            <div id="editing" className="flex flex-col gap-4 p-4 mx-auto lg:container border-x-4 border-cp0-600 lg:flex-row">
                 <div
-                    className="md:w-1/2 aspect-video" 
+                    className="lg:w-1/2 aspect-video" 
                     onMouseEnter={() => setPlayEditing(true)} 
                     onMouseLeave={() => setPlayEditing(false)}
                 >
@@ -134,7 +134,7 @@ Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywa
                         url={weddings[weddings.findIndex(vid => vid.id === currentlyPlayingWedding)].url}
                     />
                 </div>
-                <div className='grid grid-rows-2 md:w-1/2'>
+                <div className='grid lg:grid-rows-2 lg:w-1/2'>
                     <div className="text-white">
                         <div className='flex justify-between mb-4 font-extrabold'>
                             <div className="flex items-center text-2xl title-font text-cp0-500">Montaż</div>
@@ -142,11 +142,11 @@ Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywa
                         </div>
                         <p className="text-base leading-relaxed">Jako absolwent Akademii Filmu i Telewizji z dyplomem zawodowym montażysty podejście do montażu, można w moim wypadku nazwać wręcz „przesadnym” w dobrym tego słowa znaczeniu.
 Dbałość o każdy szczegół jest wręcz detaliczny.
-Moim atutem w przypadku montażu jest słuch muzyczny jak i wyczucie rytmiki co w bardzo często się przydaje podczas postprodukcji.
+Moim atutem w przypadku montażu jest słuch muzyczny jak i wyczucie rytmiki które bardzo często przydaje się podczas postprodukcji.
 W montażu istotne jest zbudowanie odpowiedniego klimatu dla projektu a co za tym 
 idzie, wprowadzenie odpowiednich emocji dla oglądającego co uważam za montażowy priorytet.</p>
                     </div>
-                    <div className="grid items-end grid-cols-3 gap-2 text-white">
+                    <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
                         {weddings.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingWedding} setCurrentlyPlaying={setCurrentlyPlayingWedding} />)}
                     </div>
                 </div>
