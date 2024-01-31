@@ -28,7 +28,7 @@ const Footer = () => {
                     </a>
                 </div>
 
-                <p className="hidden text-sm text-gray-300 sm:flex">Made by Sadurski</p>
+                <span className="hidden text-sm text-gray-300 sm:flex">Made by Sadurski</span>
             </div>
         </footer>
     )

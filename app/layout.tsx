@@ -14,7 +14,7 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: 'FIL|MS',
-  description: 'Fotografia, filmowanie, montaż oraz asystowanie na planie.',
+  description: 'Filmowanie, usługi dronem, montaż oraz asystowanie na planie.'
 }
 
 export default function RootLayout({
@@ -23,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="pl">
       <body className={`${inter.className} ${lato.variable}`}>
         <Navbar />
           {children}

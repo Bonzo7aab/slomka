@@ -73,7 +73,7 @@ export default function Attributes(){
                                 </svg>
 
                                 <span>
-                                    <span>Wideo i zdjęcia w </span> 
+                                    <span>Wideo i montaż w </span> 
                                     <BlinkText text="najwyższej jakości" delay={2} />
                                 </span>
                             </li>

@@ -13,9 +13,9 @@ const Hero = () => {
             <div className='absolute flex flex-col p-2 font-bold tracking-wider text-center transform -translate-x-1/2 -translate-y-1/2 border-2 md:p-8 w-max text-cp0-500 border-cp0-600 top-1/2 left-1/2'>
                 <div className='mb-2 text-sm lg:mb-8 lg:text-4xl'>Usługi filmowe</div>
                 <div className='flex flex-col gap-2 text-base tracking-wide lg:gap-4 lg:text-5xl'>
-                    <p>VIDEO</p>
-                    <p>DRON</p>
-                    <p>MONTAŻ</p>
+                    <span>VIDEO</span>
+                    <span>DRON</span>
+                    <span>MONTAŻ</span>
                 </div>
                 <Link href='#offer'>
                     <div className='absolute hidden p-3 duration-300 rounded-md cursor-pointer -bottom-8 left-2/3 bg-cp0-500 group lg:block'>

@@ -1,6 +1,6 @@
 "use client"
 
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import Image from "next/image";
 import Link from "next/link";
@@ -54,7 +54,16 @@ const Offer = () => {
     const [currentlyPlayingVideo, setCurrentlyPlayingVideo] = useState(0);
     const [currentlyPlayingDrone, setCurrentlyPlayingDrone] = useState(100);
     const [currentlyPlayingWedding, setCurrentlyPlayingWedding] = useState(200);
+    const [hasWindow, setHasWindow] = useState(false);
 
+    useEffect(() => {
+      if (typeof window !== "undefined") {
+        setHasWindow(true);
+      }
+    }, []);
+
+    if(!hasWindow) return;
+    
     return (
         <section id="offer" className="flex flex-col gap-4">
             <SectionTitle title="OFERTA" />
@@ -78,8 +87,8 @@ const Offer = () => {
                             <div className="flex items-center text-2xl title-font text-cp0-500">Video</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Podczas realizowania treści video skupiam sie zarówno na detalach jak i ogólnym kształcie tego co mam ograć. Zawsze staram się omawiać z klientem jego wizję co do finałowego wyglądu danego projektu.
-Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to również kieruje się dbaniem o szczegóły z myślą „zrób to tak jakbyś miał zrobić to najlepiej dla siebie”.</p>
+                        <span className="text-base leading-relaxed">Podczas realizowania treści video skupiam sie zarówno na detalach jak i ogólnym kształcie tego co mam ograć. Zawsze staram się omawiać z klientem jego wizję co do finałowego wyglądu danego projektu.
+Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to kieruje się dewizą „zrób to tak jakbyś miał zrobić to najlepiej dla siebie”.</span>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
                         {videos.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingVideo} setCurrentlyPlaying={setCurrentlyPlayingVideo} />)}
@@ -96,10 +105,10 @@ Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to równie
                             <div className="flex items-center text-2xl title-font text-cp0-500">Dron</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Dron to najmłodszy z moich usługowych doświadczeń ale już kilkukrotnie sprawdził się pozytywnie wśród klientów.
+                        <span className="text-base leading-relaxed">Dron to najmłodszy z moich usługowych doświadczeń ale już kilkukrotnie sprawdził się pozytywnie wśród klientów.
 Latam obecnie dronem Mavic Mini, który pomimo swoich gabarytów spełnia swoją rolę.
 Latając dronem wyobraźam sobie możliwie końcowy efekt jaki użyje w postprodukcji z danego ujęcia w powietrzu.
-Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywany teren dla uzyskania najlepszych efektów.</p>
+Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywany teren dla uzyskania najlepszych efektów.</span>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
                         {drone.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingDrone} setCurrentlyPlaying={setCurrentlyPlayingDrone} />)}
@@ -140,11 +149,11 @@ Analizuje zawsze miejsce w którym mam latać by maksymalnie wykorzystać ogrywa
                             <div className="flex items-center text-2xl title-font text-cp0-500">Montaż</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <p className="text-base leading-relaxed">Jako absolwent Akademii Filmu i Telewizji z dyplomem zawodowym montażysty podejście do montażu, można w moim wypadku nazwać wręcz „przesadnym” w dobrym tego słowa znaczeniu.
+                        <span className="text-base leading-relaxed">Jako absolwent Akademii Filmu i Telewizji z dyplomem zawodowym montażysty podejście do montażu, można w moim wypadku nazwać wręcz „przesadnym” w dobrym tego słowa znaczeniu.
 Dbałość o każdy szczegół jest wręcz detaliczny.
 Moim atutem w przypadku montażu jest słuch muzyczny jak i wyczucie rytmiki które bardzo często przydaje się podczas postprodukcji.
 W montażu istotne jest zbudowanie odpowiedniego klimatu dla projektu a co za tym 
-idzie, wprowadzenie odpowiednich emocji dla oglądającego co uważam za montażowy priorytet.</p>
+idzie, wprowadzenie odpowiednich emocji dla oglądającego co uważam za montażowy priorytet.</span>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
                         {weddings.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingWedding} setCurrentlyPlaying={setCurrentlyPlayingWedding} />)}

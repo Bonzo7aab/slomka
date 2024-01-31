@@ -21,7 +21,7 @@ export default function Contact(){
                         </span>
 
                         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Email</h2>
-                        <p className="mt-2 text-cp0-400">smk.filmproduction@gmail.com</p>
+                        <span className="mt-2 text-cp0-400">smk.filmproduction@gmail.com</span>
                     </MotionDiv>
 
                     <MotionDiv
@@ -36,7 +36,7 @@ export default function Contact(){
                         </span>
                         
                         <h2 className="mt-4 text-lg font-medium text-gray-800 dark:text-white">Telefon</h2>
-                        <p className="mt-2 text-cp0-400">+48 697 504 228</p>
+                        <span className="mt-2 text-cp0-400">+48 697 504 228</span>
                     </MotionDiv>
                 </div>
             </div>

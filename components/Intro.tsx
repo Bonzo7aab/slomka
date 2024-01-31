@@ -7,9 +7,7 @@ const Intro = () => {
 
     return (
         <div className={`absolute top-0 z-20 w-full h-full bg-black ${isVideoEnded && `animate-hideIntro`}`}>
-            <video autoPlay muted className='w-full h-full' onEnded={() => setIsVideoEnded(true)}>
-                <source src="/intro.mp4" />
-            </video>
+            <video autoPlay muted className='w-full h-full' src="/intro.mp4" onEnded={() => setIsVideoEnded(true)} />
         </div>
     )
 }
