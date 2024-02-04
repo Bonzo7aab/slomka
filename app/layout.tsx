@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from 'react'
 import type { Metadata } from 'next'
 import { Inter, Lato } from 'next/font/google'
 import Navbar from '@/components/Navbar'
@@ -22,10 +25,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const [isVideoEnded, setIsVideoEnded] = useState(false);
+
   return (
     <html lang="pl">
       <body className={`${inter.className} ${lato.variable}`}>
         <Navbar />
+          <div className={`absolute top-0 z-20 w-full h-full bg-black ${isVideoEnded && `animate-hideIntro`}`}>
+            <video autoPlay muted className='w-full h-full' src="/intro.mp4" onEnded={() => setIsVideoEnded(true)} />
+          </div> 
           {children}
         <Footer />
       </body>
