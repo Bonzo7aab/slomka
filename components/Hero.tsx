@@ -3,7 +3,10 @@ import Link from "next/link";
 const Hero = () => {
     return (
         <section id="home" className="relative w-full mt-24 lg:mt-0">
-            <video autoPlay muted loop src={"/showreel.mp4"} className="w-full opacity-30" />
+            <video playsInline autoPlay muted loop className="w-full opacity-30" >
+                <source src={"/showreel.mp4"} type="video/mp4"/>
+                Your browser does not support the video tag.
+            </video>
             <div className='absolute flex flex-col p-2 font-bold tracking-wider text-center transform -translate-x-1/2 -translate-y-1/2 border-2 md:p-8 w-max text-cp0-500 border-cp0-600 top-1/2 left-1/2'>
                 <div className='mb-2 text-sm lg:mb-8 lg:text-4xl'>Usługi filmowe</div>
                 <div className='flex flex-col gap-2 text-base tracking-wide lg:gap-4 lg:text-5xl'>

@@ -7,7 +7,10 @@ const Intro = () => {
 
     return (
         <div className={`absolute top-0 z-20 w-full h-full bg-black ${isVideoEnded && `animate-hideIntro`}`}>
-            <video autoPlay muted className='w-full h-full' src="/intro.mp4" onEnded={() => setIsVideoEnded(true)} />
+            <video playsInline autoPlay muted className='w-full h-full' onEnded={() => setIsVideoEnded(true)}>
+                <source src={"/intro.mp4"} type="video/mp4" />
+                Your browser does not support the video tag.
+            </video>
         </div>
     )
 }
