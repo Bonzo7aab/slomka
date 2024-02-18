@@ -22,8 +22,9 @@ const BlinkText = ({ delay, text }: { delay?: number, text: string }) =>
 const MosaicItem = ({ count, id, delay = 0.1, x = 0, y = 0 }: { count: number, id: number, delay?: number, x?: number, y?: number }) => 
     <AnimatePresence mode="wait">
         <MotionImg
-            key={`/mosaic${count === 0 ? id : count === 1 ? id + 6 : id + 12}.jpg`}
-            src={`/mosaic${count === 0 ? id : count === 1 ? id + 6 : id + 12}.jpg`}
+            alt=""
+            key={`/mosaic${count === 0 ? id : count === 1 ? id + 6 : id + 12}.png`}
+            src={`/mosaic${count === 0 ? id : count === 1 ? id + 6 : id + 12}.png`}
             initial={{ opacity: 0, x: x, y: y }}
             animate={{ opacity: 1, x: 0, y: 0 }}
             exit={{ opacity: 0, x: x, y: y }}

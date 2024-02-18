@@ -29,7 +29,7 @@ export default function About(){
                     initial={{ opacity: 0, scale: 0.9 }}
                     transition={{ delay: 0.3, duration: 1, ease: "easeInOut" }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    className="block object-cover h-full mx-auto border-2 lg:w-1/3 drop-shadow-sm border-cp0-600" src="/about.jpg" alt="profile"
+                    className="block object-cover h-full mx-auto border-2 lg:w-1/3 drop-shadow-sm border-cp0-600" src="/about.png" alt="profile"
                 />
                 <MotionDiv 
                     initial={{ opacity: 0 }}
