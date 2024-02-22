@@ -1,5 +1,4 @@
-"use client"
-
+import { NextResponse } from 'next/server';
 import { EmailTemplate } from '@/components/email-template';
 import { Resend } from 'resend';
 
@@ -8,7 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: any) {
   try {
     const body = await request.json();
-    console.log(body)
     const { name, email, phone, message } = body;
     const data = await resend.emails.send({
         from: 'onboarding@resend.dev',
@@ -18,8 +16,8 @@ export async function POST(request: any) {
         react: EmailTemplate({ name, email, phone, message })
       });
 
-    return Response.json(data);
+    return NextResponse.json(data);
   } catch (error) {
-    return Response.json({ error });
+    return NextResponse.json({ error });
   }
 }
