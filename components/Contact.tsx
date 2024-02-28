@@ -16,7 +16,7 @@ export default function Contact(){
 
     const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const response = await fetch('/api/send', {
+        const response = await fetch('/api/send/route.ts', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(data)
@@ -40,78 +40,70 @@ export default function Contact(){
                     onSubmit={(e) => sendEmail(e)}
                     className="space-y-5"
                 >
-                    <div>
-                        <label
-                            htmlFor="name"
-                            className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
-                            >
-                            <input
-                                type="name"
-                                id="name"
-                                placeholder="Name"
-                                className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                            />
-                            <span
-                                className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
-                            >
-                                Imię i nazwisko
-                            </span>
-                        </label>
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="email"
-                            className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
-                            >
-                            <input
-                                type="email"
-                                id="email"
-                                placeholder="Email"
-                                className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                            />
-                            <span
-                                className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
-                            >
-                                Email
-                            </span>
-                        </label>
-                    </div>
-                    <div>
-                        <label
-                            htmlFor="phone"
-                            className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
-                            >
-                            <input
-                                type="phone"
-                                id="phone"
-                                placeholder="Phone"
-                                className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                            />
-                            <span
-                                className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
-                            >
-                                Telefon kontaktowy
-                            </span>
-                        </label>
-                    </div>
-                    <div className="relative w-full min-w-[200px]">
-                        <label
-                            htmlFor="message"
-                            className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
-                            >
-                            <textarea
-                                id="message"
-                                placeholder="Message"
-                                className="w-full h-full min-h-[100px] p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
-                            />
-                            <span
-                                className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
-                            >
-                                Wiadomość
-                            </span>
-                        </label>
-                    </div>
+                    <label
+                        htmlFor="name"
+                        className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                    >
+                        <input
+                            type="name"
+                            id="name"
+                            maxLength={50}
+                            className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Imię i nazwisko
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="email"
+                        className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                        >
+                        <input
+                            type="email"
+                            id="email"
+                            maxLength={50}
+                            className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Email
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="phone"
+                        className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                        >
+                        <input
+                            type="phone"
+                            id="phone"
+                            maxLength={15}
+                            className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Telefon kontaktowy
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="message"
+                        className="relative w-full min-w-[200px] block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                        >
+                        <textarea
+                            id="message"
+                            className="w-full h-full min-h-[100px] p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Wiadomość
+                        </span>
+                    </label>
                     <button
+                        type='submit'
                         className="w-full px-4 py-2 font-medium text-black duration-150 rounded-lg bg-cp0-600 hover:bg-cp0-600 active:bg-cp0-600"
                     >
                         Wyślij

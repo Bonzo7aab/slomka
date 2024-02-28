@@ -1,25 +1,22 @@
 "use client"
 
-import { NextResponse } from 'next/server';
-import { EmailTemplate } from '@/components/email-template';
 import { Resend } from 'resend';
+import { EmailTemplate } from '@/components/email-template';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-export async function POST(request: any) {
-  try {
-    const body = await request.json();
-    const { name, email, phone, message } = body;
-    const data = await resend.emails.send({
-        from: 'onboarding@resend.dev',
-        to: 'bonzo7aab@gmail.com',
-        subject: `Email od ${email}`,
-        text: 'Wysyłka maila zadziałała',
-        react: EmailTemplate({ name, email, phone, message })
-      });
+export async function POST(request: Request, res: Response) {
+  const { name, email, phone, message } = await request.json();
+  console.log('bb', name)
+  const { data, error } = await resend.emails.send({
+      from: 'onboarding@resend.dev',
+      to: 'bonzo7aab@gmail.com',
+      subject: `Email od ${email}`,
+      text: 'Wysyłka maila zadziałała',
+      react: EmailTemplate({ name, email, phone, message })
+    });
 
-    return NextResponse.json(data);
-  } catch (error) {
-    return NextResponse.json({ error });
-  }
+    if(error) Response.json(error);
+
+    return Response.json({ message: 'Email send successfully' });
 }
