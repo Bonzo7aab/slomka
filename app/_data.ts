@@ -1,13 +1,13 @@
 export const videos = [
     {
         id: 0,
-        url: 'https://youtu.be/5BrWgwM1FaY?si=f4DRO66VALHp5QQG',
-        thumbnail: 'https://img.youtube.com/vi/5BrWgwM1FaY/sddefault.jpg'
+        url: 'https://youtu.be/oJOYn1WvoRc?si=nLMaKMAmGOCDwfY7',
+        thumbnail: 'https://img.youtube.com/vi/oJOYn1WvoRc/sddefault.jpg'
     },
     {
         id: 1,
-        url: 'https://youtu.be/oJOYn1WvoRc?si=nLMaKMAmGOCDwfY7',
-        thumbnail: 'https://img.youtube.com/vi/oJOYn1WvoRc/sddefault.jpg'
+        url: 'https://youtu.be/5BrWgwM1FaY?si=f4DRO66VALHp5QQG',
+        thumbnail: 'https://img.youtube.com/vi/5BrWgwM1FaY/sddefault.jpg'
     }
 ];
 
