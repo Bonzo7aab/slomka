@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Intro from '@/components/Intro'
 import './globals.css'
+import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className={`${inter.className} ${lato.variable}`}>
+        <Toaster />
         <Navbar />
           <Intro />
           {children}

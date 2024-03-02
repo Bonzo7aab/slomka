@@ -105,7 +105,7 @@ Jeżeli klient zostawia pełną kontrolę nagrań do mojej dyspozycji to kieruje
                             <div className="flex items-center text-2xl title-font text-cp0-500">Dron</div>
                             <Link href={'/filmy'} className='p-2 text-black duration-150 bg-cp0-500 hover:bg-cp0-600'>Więcej filmów</Link>
                         </div>
-                        <span className="text-base leading-relaxed">Dron to najmłodszy z moich usługowych elementó ale już kilkukrotnie sprawdził się pozytywnie wśród klientów.
+                        <span className="text-base leading-relaxed">Dron to najmłodszy z moich usługowych elementów ale już kilkukrotnie sprawdził się pozytywnie wśród klientów.
 Latam obecnie dronem Mavic Mini, który pomimo swoich gabarytów spełnia swoją rolę.
 Latając dronem wyobraźam sobie możliwie końcowy efekt jaki użyje w postprodukcji z danego ujęcia w powietrzu.
 Zawsze analizuje miejsce w którym mam latać by maksymalnie wykorzystać ogrywany teren dla uzyskania najlepszych efektów.</span>

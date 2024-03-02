@@ -1,10 +1,123 @@
+"use client"
+
+import { FormEvent, useRef } from 'react';
+import toast from 'react-hot-toast';
 import { MotionDiv } from "@/components/Motion";
 import SectionTitle from "./SectionTitle";
 
 export default function Contact(){
+    const ref = useRef<HTMLFormElement>(null)
+
+    const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const form_values = Object.fromEntries(formData);
+
+        const response = await fetch('/api/send', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(form_values)
+        })
+
+        if(response.status === 200) {
+            toast.success('Wiadomość została wysłana!')
+        } else {
+            toast.error('Błąd wysłania wiadomości. Skontaktuj się ze mną inaczej.')
+        }
+    }
+
     return (
         <section id="contact" className="flex flex-col justify-center">
             <SectionTitle title={"KONTAKT"} />
+
+            <div className="w-full px-4 pb-12 mx-auto text-gray-400 md:max-w-3xl">
+                <form
+                    ref={ref}
+                    onSubmit={async (formData) => {
+                        await sendEmail(formData)
+                        ref.current?.reset()
+                    }}
+                    className="space-y-5"
+                >
+                    <label
+                        htmlFor="username"
+                        className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                    >
+                        <input
+                            type="text"
+                            name="username"
+                            id="username"
+                            maxLength={50}
+                            required
+                            className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Imię i nazwisko
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="email"
+                        className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                        >
+                        <input
+                            type="email"
+                            name="email"
+                            id="email"
+                            maxLength={50}
+                            required
+                            className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Email
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="phone"
+                        className="relative block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                        >
+                        <input
+                            type="text"
+                            name="phone"
+                            id="phone"
+                            maxLength={15}
+                            required
+                            className="w-full h-8 p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Telefon kontaktowy
+                        </span>
+                    </label>
+                    <label
+                        htmlFor="message"
+                        className="relative w-full min-w-[200px] block pt-3 overflow-hidden bg-transparent border-b border-gray-200 focus-within:border-cp0-600"
+                        >
+                        <textarea
+                            id="message"
+                            name="message"
+                            required
+                            className="w-full h-full min-h-[100px] p-0 placeholder-transparent bg-transparent border-none peer focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                        <span
+                            className="absolute text-xs transition-all -translate-y-1/2 start-0 top-2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-sm peer-focus:top-2 peer-focus:text-xs"
+                        >
+                            Wiadomość
+                        </span>
+                    </label>
+                    <button
+                        type='submit'
+                        className="w-full px-4 py-2 font-medium text-black duration-150 rounded-lg bg-cp0-600 hover:bg-cp0-600 active:bg-cp0-600"
+                    >
+                        Wyślij
+                    </button>
+                </form>
+            </div>
+
 
             <div className="container px-6 pb-12 mx-auto">
                 <div className="grid grid-cols-1 gap-12 mt-10 md:grid-cols-2 lg:grid-cols-2">
