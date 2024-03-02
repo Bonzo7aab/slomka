@@ -1,15 +1,17 @@
 "use client"
 
-import { FormEvent, useRef } from 'react';
+import { FormEvent, useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 import { MotionDiv } from "@/components/Motion";
 import SectionTitle from "./SectionTitle";
 
 export default function Contact(){
     const ref = useRef<HTMLFormElement>(null)
+    const [buttonDisabled, setButtonDisabled] = useState(false);
 
     const sendEmail = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
+        setButtonDisabled(true);
         const formData = new FormData(e.currentTarget);
         const form_values = Object.fromEntries(formData);
 
@@ -24,6 +26,7 @@ export default function Contact(){
         } else {
             toast.error('Błąd wysłania wiadomości. Skontaktuj się ze mną inaczej.')
         }
+        setButtonDisabled(false);
     }
 
     return (
@@ -111,6 +114,7 @@ export default function Contact(){
                     </label>
                     <button
                         type='submit'
+                        disabled={buttonDisabled}
                         className="w-full px-4 py-2 font-medium text-black duration-150 rounded-lg bg-cp0-600 hover:bg-cp0-600 active:bg-cp0-600"
                     >
                         Wyślij
