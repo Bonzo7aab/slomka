@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
     try {
         const data = await resend.emails.send({
             from: 'Filmsmk.pl - Kontakt <contact@filmsmk.pl>',
-            to: ['bonzo7aab@gmail.com'],
+            to: ['smk.filmproduction@gmail.com'],
             subject: `Kontakt od ${username}`,
             text: 'Email from filmsmk.pl contact form',
             react: ContactUserEmail({
