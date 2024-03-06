@@ -14,7 +14,7 @@ export default function About(){
                     initial={{ opacity: 0 }}
                     transition={{ delay: 0.1, duration: 1, ease: "easeInOut" }}
                     whileInView={{ opacity: 1 }}
-                    className="w-full lg:text-right lg:w-1/3"
+                    className="w-full lg:w-1/3"
                 >
                     Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
                     <br /><br />
