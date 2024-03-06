@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import Image from "next/image";
 import Link from "next/link";
-import { drone, videos, weddings } from "@/app/_data";
+import { drone, videos, editing } from "@/app/_data";
 import SectionTitle from "./SectionTitle";
 
 const VideoItem = (
@@ -53,7 +53,7 @@ const Offer = () => {
     const [playEditing, setPlayEditing] = useState(false);
     const [currentlyPlayingVideo, setCurrentlyPlayingVideo] = useState(0);
     const [currentlyPlayingDrone, setCurrentlyPlayingDrone] = useState(100);
-    const [currentlyPlayingWedding, setCurrentlyPlayingWedding] = useState(200);
+    const [currentlyPlayingEditing, setCurrentlyPlayingEditing] = useState(200);
     const [hasWindow, setHasWindow] = useState(false);
 
     useEffect(() => {
@@ -140,7 +140,7 @@ Zawsze analizuje miejsce w którym mam latać by maksymalnie wykorzystać ogrywa
                         width="100%"
                         height="100%"
                         playing={playEditing}
-                        url={weddings[weddings.findIndex(vid => vid.id === currentlyPlayingWedding)].url}
+                        url={editing[editing.findIndex(vid => vid.id === currentlyPlayingEditing)].url}
                     />
                 </div>
                 <div className='grid lg:grid-rows-2 lg:w-1/2'>
@@ -156,7 +156,7 @@ W montażu istotne jest zbudowanie odpowiedniego klimatu dla projektu a co za ty
 idzie, wprowadzenie odpowiednich emocji dla oglądającego co uważam za montażowy priorytet.</span>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
-                        {weddings.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingWedding} setCurrentlyPlaying={setCurrentlyPlayingWedding} />)}
+                        {editing.slice(0, 3).map((video, i) => <VideoItem key={i} data={video} currentlyPlaying={currentlyPlayingEditing} setCurrentlyPlaying={setCurrentlyPlayingEditing} />)}
                     </div>
                 </div>
             </div>

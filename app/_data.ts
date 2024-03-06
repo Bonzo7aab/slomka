@@ -54,11 +54,16 @@ export const drone = [
     }
 ];
 
-export const weddings = [
+export const editing = [
     {
         id: 200,
         url: 'https://youtu.be/TwLPMutyuBo?si=1tcjqoWrxx7PG2EH',
         thumbnail: 'https://img.youtube.com/vi/TwLPMutyuBo/sddefault.jpg'
+    },
+    {
+        id: 201,
+        url: 'https://youtu.be/0KUbM_oaMls?si=1tcjqoWrxx7PG2EH',
+        thumbnail: 'https://img.youtube.com/vi/0KUbM_oaMls/sddefault.jpg'
     }
 ];
 

@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import Image from "next/image";
-import { drone, videos, weddings } from "../_data";
+import { drone, videos, editing } from "../_data";
 import { MotionDiv } from "@/components/Motion";
 
 const container = {
@@ -59,7 +59,7 @@ const VideoItem = (
 
 export default function Videos(){
     const [currentlyPlaying, setCurrentlyPlaying] = useState(0);
-    const combinedVideos = videos.concat(drone).concat(weddings)    
+    const combinedVideos = videos.concat(drone).concat(editing)    
 
     return (
         <section id="films" className="flex flex-col items-center bg-black">
