@@ -64,6 +64,11 @@ export const editing = [
         id: 201,
         url: 'https://youtu.be/0KUbM_oaMls?si=1tcjqoWrxx7PG2EH',
         thumbnail: 'https://img.youtube.com/vi/0KUbM_oaMls/sddefault.jpg'
+    },
+    {
+        id: 202,
+        url: 'https://youtu.be/U9-tZkv4V0Y?si=1tcjqoWrxx7PG2EH',
+        thumbnail: 'https://img.youtube.com/vi/U9-tZkv4V0Y/sddefault.jpg'
     }
 ];
 

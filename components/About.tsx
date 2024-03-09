@@ -16,14 +16,16 @@ export default function About(){
                     whileInView={{ opacity: 1 }}
                     className="w-full lg:w-1/3"
                 >
-                    Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
+                    <p>Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
                     <br /><br />
-                    Moje wykształcenie: Dyplom zawodowy jako „montażysta” w Akademii Filmu i Telewizji. Ukończyłem także Warszawską Szkołę Reklamy na specjalizacji Realizacja Filmowa i Telewizyjna. 
-                    Poszerzyłem także swoje umiejętności jako operator <ScrollLink to='drone' spy={true} smooth={true} duration={500} offset={-120} className="cursor-pointer text-cp0-400">drona</ScrollLink>. 
+                    Moje wykształcenie: 
+                    <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy jako „montażysta” w <b>Akademii Filmu i Telewizji.</b></span></li>
+                    <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy <b>Warszawskiej Szkoły Reklamy</b> na specjalizacji Realizacja Filmowa i Telewizyjna.</span></li>
+                    <br />Poszerzyłem także swoje umiejętności jako operator <ScrollLink to='drone' spy={true} smooth={true} duration={500} offset={-120} className="cursor-pointer text-cp0-400">drona</ScrollLink>. 
                     Staram się realizować usługi indywidualnie pod potrzeby klienta na każdym etapie produkcji z dbałością o każdy szczegół dlatego także CENY usług są zawsze dopasowane indywidualnie.
                     <br /><br />
                     Wykorzystuję najlepszej jakości sprzęt filmowy, który zawsze mogę dopasować do potrzeb klienta.
-                    Wszystkie realizacje charakteryzują się wysoką jakością, ale także kreatywnością i dbałością o detale.
+                    Wszystkie realizacje charakteryzują się wysoką jakością, ale także kreatywnością i dbałością o detale.</p>
                 </MotionDiv>
                 <MotionImg
                     initial={{ opacity: 0, scale: 0.9 }}
