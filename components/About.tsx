@@ -19,8 +19,8 @@ export default function About(){
                     <p>Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
                     <br /><br />
                     Moje wykształcenie: 
-                    <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy jako „montażysta” w <b>Akademii Filmu i Telewizji.</b></span></li>
-                    <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy <b>Warszawskiej Szkoły Reklamy</b> na specjalizacji Realizacja Filmowa i Telewizyjna.</span></li>
+                    <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy jako „montażysta” w <b className="underline underline-offset-4 decoration-cp0-400">Akademii Filmu i Telewizji.</b></span></li>
+                    <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy <b className="underline underline-offset-4 decoration-cp0-400">Warszawskiej Szkoły Reklamy</b> na specjalizacji Realizacja Filmowa i Telewizyjna.</span></li>
                     <br />Poszerzyłem także swoje umiejętności jako operator <ScrollLink to='drone' spy={true} smooth={true} duration={500} offset={-120} className="cursor-pointer text-cp0-400">drona</ScrollLink>. 
                     Staram się realizować usługi indywidualnie pod potrzeby klienta na każdym etapie produkcji z dbałością o każdy szczegół dlatego także CENY usług są zawsze dopasowane indywidualnie.
                     <br /><br />
