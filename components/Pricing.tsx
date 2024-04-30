@@ -57,16 +57,6 @@ const premiumItemsData = [
     }
 ]
 
-// const Tooltip = ({ text }: { text: string }) => 
-//     <div className="relative flex ml-1 group">
-//         <button className="text-gray-200 transition-colors duration-200 hover:text-blue-400">
-//             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36" stroke-width="2" stroke="currentColor" className="w-6 h-6">
-//                 <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
-//             </svg>
-//         </button>
-//         <span className="absolute px-1 m-4 mx-auto text-sm text-gray-100 transition-opacity bg-gray-800 rounded-md opacity-0 group-hover:opacity-100 ">{text}</span>
-//     </div>
-
 const PricingItem = ({ positive = true, text }: { positive?: boolean, text: string }) =>
     <div className="flex items-center">
         <svg xmlns="http://www.w3.org/2000/svg" className={`${positive ? 'text-blue-500': 'text-red-400'} w-5 h-5`} viewBox="0 0 20 20" fill="currentColor">
@@ -131,7 +121,7 @@ const Pricing = () => {
                                 <h1 className="text-lg font-medium text-white lg:text-xl">Pakiet zawiera:</h1>
 
                                 <div className="mt-8 space-y-4">
-                                    {standartItemsData.map((item, i) => <PricingItem key={i} positive={item.positive} text={item.text} />)}
+                                    {standartItemsData.map((item, i) => <PricingItem key={i} text={item.text} />)}
                                 </div>
                             </div>
 
@@ -159,7 +149,7 @@ const Pricing = () => {
                                 <h1 className="text-lg font-medium text-white lg:text-xl">Pakiet zawiera:</h1>
 
                                 <div className="mt-8 space-y-4">
-                                    {premiumItemsData.map((item, i) => <PricingItem key={i} positive={item.positive} text={item.text} />)}      
+                                    {premiumItemsData.map((item, i) => <PricingItem key={i} text={item.text} />)}      
                                 </div>
                             </div>
 
