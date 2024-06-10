@@ -53,6 +53,7 @@ const Navbar = () => {
                 <NavListItem to='drone' name='dron'/>
                 <NavListItem to='editing' name='montaż'/>
                 <NavListItem to='about' name='o mnie'/>
+                <NavListItem to='pricing' name='cennik'/>
                 <NavListItem to='contact' name='kontakt'/>
               </ul>
             </div>
@@ -184,6 +185,24 @@ const Navbar = () => {
                           onClick={() => setIsMenuOpen(false)}
                         >
                           O mnie
+                        </ScrollLink>
+                      </MotionLi>
+                      <MotionLi
+                        initial={{ opacity: 0, y: -10 }}
+                        transition={{ delay: 0.4, duration: 1, ease: "easeInOut" }}
+                        animate={{ opacity: 1, y: 0 }}
+                      >
+                        <ScrollLink
+                          to="pricing"
+                          spy={true}
+                          smooth={true}
+                          duration={500}
+                          offset={-120}
+                          title="Cennik"
+                          className="text-3xl font-medium tracking-wide transition-colors hover:text-cp0-500"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          Cennik
                         </ScrollLink>
                       </MotionLi>
                       <MotionLi
