@@ -1,11 +1,12 @@
 "use client"
 
 import { usePathname } from 'next/navigation'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
 import { Link as ScrollLink } from 'react-scroll';
 import { MotionLi } from './Motion';
+import { createClient } from '@/utils/supabase/client';
 
 const NavListItem = ({ to, name }: { to: string, name: string}) => 
   <li>
@@ -21,9 +22,21 @@ const NavListItem = ({ to, name }: { to: string, name: string}) =>
     </ScrollLink>
   </li>
 
-const Navbar = () => {
+const Navbar =  () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const pathname = usePathname()
+    const pathname = usePathname();
+    // const supabase = createClient();
+    // const [users, setUsers] = useState([])
+
+    // useEffect(() => {
+    //   const getData = async () => {
+    //     const { data: { user } } = await supabase.auth.getUser()
+    //     setUsers(user)
+    //   }
+  
+    //   getData()
+    // }, [])
+
     return (
 
       <nav className="fixed z-10 flex justify-center w-full h-24 py-4 mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
@@ -42,7 +55,7 @@ const Navbar = () => {
                 </li>
               </ul>
             :
-            <div className='items-center justify-between hidden w-full lg:flex'>
+            <div className='relative items-center justify-between hidden w-full lg:flex'>
               <Link href={'/'}>
                 <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} 
                   className='animate-logoBlur'
@@ -56,6 +69,7 @@ const Navbar = () => {
                 <NavListItem to='pricing' name='cennik'/>
                 <NavListItem to='contact' name='kontakt'/>
               </ul>
+              <div className='absolute p-2 font-bold text-black top-20 left-1/2 bg-cp0-300'>EDITOR MODE</div>
             </div>
           }
           <div className="w-full lg:hidden">
