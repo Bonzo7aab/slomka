@@ -5,14 +5,16 @@ import About from '@/components/About';
 import Hero from '@/components/Hero';
 import Pricing from '@/components/Pricing';
 import Intro from '@/components/Intro';
-import { cookies } from 'next/headers';
+import { getData } from './admin/actions';
 
-export default function Home() {
+export default async function Home() {
+    const data = await getData();
+
     return (
         <div className="flex flex-col gap-16 bg-black lg:gap-32">
-            {cookies().get('session_intro')?.value === 'true' || <Intro />}
+            <Intro />
             <Hero />
-            <Offer />
+            <Offer data={data} />
             <About />
             <Attributes />
             <Pricing />

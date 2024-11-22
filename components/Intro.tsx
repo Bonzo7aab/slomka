@@ -1,6 +1,6 @@
 "use client"
 
-import { setCookie } from 'cookies-next';
+import { getCookie, hasCookie, setCookie } from 'cookies-next';
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
@@ -16,6 +16,10 @@ const Intro = () => {
     if(isVideoEnded) {
         setCookie("session_intro", "true");
     }
+
+    const introEnded = hasCookie('session_intro') || getCookie('session_intro');
+
+    if(introEnded) return;
 
     return (
         <div className={`absolute top-0 z-20 w-full h-full bg-black ${isVideoEnded && `animate-hideIntro`}`} onClick={() => setIsVideoEnded(true)}>

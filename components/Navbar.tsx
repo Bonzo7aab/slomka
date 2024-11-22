@@ -1,12 +1,11 @@
 "use client"
 
 import { usePathname } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image';
 import { Link as ScrollLink } from 'react-scroll';
 import { MotionLi } from './Motion';
-import { createClient } from '@/utils/supabase/client';
 
 const NavListItem = ({ to, name }: { to: string, name: string}) => 
   <li>
@@ -22,28 +21,16 @@ const NavListItem = ({ to, name }: { to: string, name: string}) =>
     </ScrollLink>
   </li>
 
-const Navbar =  () => {
+const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
-    // const supabase = createClient();
-    // const [users, setUsers] = useState([])
-
-    // useEffect(() => {
-    //   const getData = async () => {
-    //     const { data: { user } } = await supabase.auth.getUser()
-    //     setUsers(user)
-    //   }
-  
-    //   getData()
-    // }, [])
 
     return (
-
       <nav className="fixed z-10 flex justify-center w-full h-24 py-4 mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
         <div className="relative w-full px-8 text-xl lg:container">
 
-          {pathname === '/filmy'
-            ? 
+          {pathname === '/admin' || pathname === '/login' 
+            ?
               <ul className='items-center justify-between hidden w-full gap-6 lg:flex'>
                 <li>
                   <Link href={'/'}>
@@ -54,60 +41,74 @@ const Navbar =  () => {
                   <Link href={'/'}>Powrót</Link>
                 </li>
               </ul>
-            :
-            <div className='relative items-center justify-between hidden w-full lg:flex'>
-              <Link href={'/'}>
-                <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} 
-                  className='animate-logoBlur'
-                  />
-              </Link>
-              <ul className="flex space-x-8">
-                <NavListItem to='video' name='video'/>
-                <NavListItem to='drone' name='dron'/>
-                <NavListItem to='editing' name='montaż'/>
-                <NavListItem to='about' name='o mnie'/>
-                <NavListItem to='pricing' name='cennik'/>
-                <NavListItem to='contact' name='kontakt'/>
-              </ul>
-              <div className='absolute p-2 font-bold text-black top-20 left-1/2 bg-cp0-300'>EDITOR MODE</div>
-            </div>
-          }
-          <div className="w-full lg:hidden">
-            <div className='flex items-center justify-between px-4'>
-              <Link href={'/'}>
-                <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
-              </Link>
+            : <>
               {pathname === '/filmy'
                 ? 
-                  <div className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
-                    <Link href={'/'}>Powrót</Link>
-                  </div>
+                  <ul className='items-center justify-between hidden w-full gap-6 lg:flex'>
+                    <li>
+                      <Link href={'/'}>
+                        <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
+                      </Link>
+                    </li>
+                    <li className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
+                      <Link href={'/'}>Powrót</Link>
+                    </li>
+                  </ul>
                 :
-                  <button
-                    aria-label="Open Menu"
-                    title="Open Menu"
-                    className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
-                    onClick={() => setIsMenuOpen(true)}
-                  >
-                    <svg className="w-10 text-gray-600" viewBox="0 0 24 24">
-                      <path
-                        fill="currentColor"
-                        d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                <div className='relative items-center justify-between hidden w-full lg:flex'>
+                  <Link href={'/'}>
+                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} 
+                      className='animate-logoBlur'
                       />
-                      <path
-                        fill="currentColor"
-                        d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
-                      />
-                      <path
-                        fill="currentColor"
-                        d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
-                      />
-                    </svg>
-                  </button>
+                  </Link>
+                  <ul className="flex space-x-8">
+                    <NavListItem to='movies' name='video'/>
+                    <NavListItem to='drone' name='dron'/>
+                    <NavListItem to='editing' name='montaż'/>
+                    <NavListItem to='about' name='o mnie'/>
+                    <NavListItem to='pricing' name='cennik'/>
+                    <NavListItem to='contact' name='kontakt'/>
+                  </ul>
+                </div>
               }
-            </div>
+              <div className="w-full lg:hidden">
+                <div className='flex items-center justify-between px-4'>
+                  <Link href={'/'}>
+                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
+                  </Link>
+                  {pathname === '/filmy'
+                    ? 
+                      <div className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
+                        <Link href={'/'}>Powrót</Link>
+                      </div>
+                    :
+                      <button
+                        aria-label="Open Menu"
+                        title="Open Menu"
+                        className="p-2 -mr-1 transition duration-200 rounded focus:outline-none focus:shadow-outline hover:bg-deep-purple-50 focus:bg-deep-purple-50"
+                        onClick={() => setIsMenuOpen(true)}
+                      >
+                        <svg className="w-10 text-gray-600" viewBox="0 0 24 24">
+                          <path
+                            fill="currentColor"
+                            d="M23,13H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,13,23,13z"
+                          />
+                          <path
+                            fill="currentColor"
+                            d="M23,6H1C0.4,6,0,5.6,0,5s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,6,23,6z"
+                          />
+                          <path
+                            fill="currentColor"
+                            d="M23,20H1c-0.6,0-1-0.4-1-1s0.4-1,1-1h22c0.6,0,1,0.4,1,1S23.6,20,23,20z"
+                          />
+                        </svg>
+                      </button>
+                  }
+                </div>
 
-          </div>
+              </div>
+            </>
+          }
         </div>
         {isMenuOpen && (
               <div className="absolute left-0 w-full -mt-4 top-4">
@@ -243,7 +244,6 @@ const Navbar =  () => {
               </div>
             )}
       </nav>
-
     )
 }
 
