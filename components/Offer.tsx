@@ -15,12 +15,11 @@ const VideoItem = (
     {
         section
     }: { 
-        section: AllMovies | null
+        section: AllMovies
     }) => {
-    if(!section?.videos) return;
-
     const [playing, setPlaying] = useState<boolean>(false);
-    const [playerVideo, setPlayerVideo] = useState<string>(section.videos[0]);
+    const [playerVideo, setPlayerVideo] = useState<string>(section.videos![0]);
+
     
     return (
         <>
@@ -46,7 +45,7 @@ const VideoItem = (
                         <span className="text-base leading-relaxed">{section.description}</span>
                     </div>
                     <div className="grid items-end grid-cols-3 gap-2 mt-8 text-white">
-                        {section.videos.slice(0, 3).map((video, i) => 
+                        {section.videos!.slice(0, 3).map((video, i) => 
                             <VideoSmall key={i} video={video} playerVideo={playerVideo} setPlayerVideo={setPlayerVideo} />
                         )}
                     </div>
@@ -58,16 +57,15 @@ const VideoItem = (
 }
 
 const Offer = ({ data }: { data: AllMovies[] | null}) => {
-    
-    if(!data) return <Skeleton />
-    
     const [hasWindow, setHasWindow] = useState(false);
-
+    
     useEffect(() => {
       if (typeof window !== "undefined") {
         setHasWindow(true);
       }
     }, []);
+
+    if(!data) return <Skeleton />
 
     if(!hasWindow) return;
     
@@ -75,10 +73,13 @@ const Offer = ({ data }: { data: AllMovies[] | null}) => {
         <section id="offer" className="flex flex-col gap-4">
             <SectionTitle title="OFERTA" />
             {data.reverse().map(section =>
-                <VideoItem 
-                    key={section.id} 
-                    section={section} 
-                />
+                section.videos 
+                    ? 
+                        <VideoItem 
+                            key={section.id} 
+                            section={section} 
+                        />
+                    : null
             )}
         </section>
     )
