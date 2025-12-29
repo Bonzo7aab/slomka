@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 import { Inter, Lato } from 'next/font/google'
+import { Toaster } from 'react-hot-toast'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import Intro from '@/components/Intro'
+import EditorMode from '@/components/EditorMode'
 import './globals.css'
-import { Toaster } from 'react-hot-toast'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -29,8 +29,8 @@ export default function RootLayout({
       <body className={`${inter.className} ${lato.variable}`}>
         <Toaster />
         <Navbar />
-          <Intro />
-          {children}
+        <EditorMode />
+        {children}
         <Footer />
       </body>
     </html>

@@ -16,7 +16,7 @@ export default function About(){
                     whileInView={{ opacity: 1 }}
                     className="w-full lg:w-1/3"
                 >
-                    <p>Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
+                    <div>Cześć. Nazywam się <span className="underline underline-offset-4 decoration-cp0-400">Michał Słomka</span> i witam Cię na mojej stronie usługowej z zakresu video/montaż.
                     <br /><br />
                     Moje wykształcenie: 
                     <li className="text-cp0-400"><span className="text-white">Dyplom zawodowy jako „montażysta” w <b className="underline underline-offset-4 decoration-cp0-400">Akademii Filmu i Telewizji.</b></span></li>
@@ -25,7 +25,7 @@ export default function About(){
                     Staram się realizować usługi indywidualnie pod potrzeby klienta na każdym etapie produkcji z dbałością o każdy szczegół dlatego także CENY usług są zawsze dopasowane indywidualnie.
                     <br /><br />
                     Wykorzystuję najlepszej jakości sprzęt filmowy, który zawsze mogę dopasować do potrzeb klienta.
-                    Wszystkie realizacje charakteryzują się wysoką jakością, ale także kreatywnością i dbałością o detale.</p>
+                    Wszystkie realizacje charakteryzują się wysoką jakością, ale także kreatywnością i dbałością o detale.</div>
                 </MotionDiv>
                 <MotionImg
                     initial={{ opacity: 0, scale: 0.9 }}
