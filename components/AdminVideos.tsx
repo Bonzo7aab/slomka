@@ -11,8 +11,9 @@ import { Button } from "./ui/button";
 import { thumbnailParser, urlParser } from "@/utils/helpers";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "./ui/dialog";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
-import { addMovie, deleteMovie, updateMovie } from "@/app/admin/actions";
+import { addMovie, deleteMovie, updateMovie, reorderMovie } from "@/app/admin/actions";
 import { RadioGroup, RadioGroupItem } from "./ui/radio-group";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 export const names: {[key: string]: string} = {
     ["movies"]: "Video",
@@ -224,6 +225,18 @@ const DeleteMovie = ({ videos, movieCategory, movieId }: { videos: string[] | nu
 
 const VideoSection = ({ sectionData }: { sectionData: AllMovies }) => {
     const { name, description, videos } = sectionData;
+    const router = useRouter();
+
+    const handleReorder = async (movieId: string, direction: 'up' | 'down') => {
+        const response = await reorderMovie(name, videos, movieId, direction);
+
+        if (response != null) {
+            toast.success('Kolejność filmów zaktualizowana!');
+        } else {
+            toast.error('Błąd zmiany kolejności. Skontaktuj się z adminem.');
+        }
+        router.refresh();
+    };
 
     return (
         <div className='flex w-full h-fit border border-cp0-600 max-w-7xl self-center p-4 mb-4'>
@@ -233,7 +246,7 @@ const VideoSection = ({ sectionData }: { sectionData: AllMovies }) => {
             <div className='w-full'>
                 <div>{description}</div>
                 <div>
-                    {videos!.map((video) =>
+                    {videos!.map((video, index) =>
                         <div key={video} className='p-2 flex'>
                             <Image src={thumbnailParser(video)} alt={urlParser(video)} width={200} height={200}/>
                             <div className='p-4 flex justify-between flex-col'>
@@ -242,6 +255,22 @@ const VideoSection = ({ sectionData }: { sectionData: AllMovies }) => {
                                     <div>Id: <span className="text-cp0-600">{video}</span></div>
                                 </div>
                                 <div className='gap-4 flex'>
+                                    <Button
+                                        onClick={() => handleReorder(video, 'up')}
+                                        disabled={index === 0}
+                                        className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-500 disabled:cursor-not-allowed"
+                                        size="icon"
+                                    >
+                                        <ChevronUp className="h-4 w-4" />
+                                    </Button>
+                                    <Button
+                                        onClick={() => handleReorder(video, 'down')}
+                                        disabled={index === videos!.length - 1}
+                                        className="bg-blue-500 hover:bg-blue-600 disabled:bg-gray-500 disabled:cursor-not-allowed"
+                                        size="icon"
+                                    >
+                                        <ChevronDown className="h-4 w-4" />
+                                    </Button>
                                     <UpdateMovie videos={videos} movieCategory={name} movieId={video}/>
                                     <DeleteMovie videos={videos} movieCategory={name} movieId={video} />
                                 </div>

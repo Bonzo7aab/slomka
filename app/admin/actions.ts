@@ -42,17 +42,33 @@ export const getUser = async (): Promise<User | null> => {
 };
 
 export const getData = async (): Promise<AllMovies[] | null> => {
-  const supabase = await createClient();
-  let { data, error } = await supabase
-      .from("all_movies")
-      .select('*')
+  try {
+    // Validate environment variables
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY) {
+      console.error('Missing Supabase environment variables');
+      return null;
+    }
 
-  if (error) {
-    console.log(error);
+    const supabase = await createClient();
+    let { data, error } = await supabase
+        .from("all_movies")
+        .select('*')
+
+    if (error) {
+      console.error('Supabase query error:', error);
+      return null;
+    }
+
+    return data;
+  } catch (err) {
+    console.error('Error in getData:', err);
+    // If it's a fetch error, provide more context
+    if (err instanceof Error && err.message.includes('fetch')) {
+      console.error('Fetch failed - check Supabase URL and network connectivity');
+      console.error('Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL ? 'Set' : 'Missing');
+    }
     return null;
   }
-
-  return data;
 }
 
 export async function addMovie (movie_category: string, videos: string[] | null, movie_id: string) {
@@ -98,6 +114,49 @@ export async function deleteMovie(movie_category: string, videos: string[] | nul
       .update({ videos: updateVideo })
       .eq('name', movie_category)
       .select()
+
+  if (error) {
+    console.log(error);
+    return null;
+  }
+
+  return data;
+}
+
+export async function reorderMovie(movie_category: string, videos: string[] | null, movie_id: string, direction: 'up' | 'down') {
+  const supabase = await createClient();
+  
+  if (!videos || videos.length <= 1) {
+    return null;
+  }
+
+  const currentIndex = videos.indexOf(movie_id);
+  
+  if (currentIndex === -1) {
+    return null;
+  }
+
+  // Check boundary conditions
+  if (direction === 'up' && currentIndex === 0) {
+    return null;
+  }
+  
+  if (direction === 'down' && currentIndex === videos.length - 1) {
+    return null;
+  }
+
+  // Create a copy of the array
+  const reorderedVideos = [...videos];
+  
+  // Swap elements
+  const targetIndex = direction === 'up' ? currentIndex - 1 : currentIndex + 1;
+  [reorderedVideos[currentIndex], reorderedVideos[targetIndex]] = [reorderedVideos[targetIndex], reorderedVideos[currentIndex]];
+
+  const { data, error } = await supabase
+    .from('all_movies')
+    .update({ videos: reorderedVideos })
+    .eq('name', movie_category)
+    .select()
 
   if (error) {
     console.log(error);

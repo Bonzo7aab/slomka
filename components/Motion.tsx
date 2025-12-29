@@ -1,6 +1,7 @@
 "use client"
 
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
+import { forwardRef } from 'react';
 
 const MotionDiv = motion.div;
 const MotionImg = motion.img;

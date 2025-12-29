@@ -2,7 +2,12 @@
 const nextConfig = {
   reactStrictMode: false,   
   images: {
-    domains: ['img.youtube.com']
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.youtube.com',
+      },
+    ],
   },
   serverExternalPackages: [
     '@react-email/components',
