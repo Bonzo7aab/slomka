@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image';
 import { Link as ScrollLink } from 'react-scroll';
 import { MotionLi } from './Motion';
+import EditorMode from './EditorMode';
 
 const NavListItem = ({ to, name }: { to: string, name: string}) => 
   <li>
@@ -26,21 +27,36 @@ const Navbar = () => {
     const pathname = usePathname();
 
     return (
-      <nav className="fixed z-10 flex justify-center w-full h-24 py-4 mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
-        <div className="relative w-full px-8 text-xl lg:container">
-
+      <nav className="fixed z-50 flex flex-col w-full mx-auto text-white uppercase bg-black font-lato drop-shadow-sm">
+        <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-8 text-xl h-24 flex items-center">
           {pathname === '/admin' || pathname === '/login' 
             ?
-              <ul className='items-center justify-between hidden w-full gap-6 lg:flex'>
-                <li>
+              <>
+                <ul className='items-center justify-between hidden w-full gap-6 lg:flex'>
+                  <li>
+                    <Link href={'/'}>
+                      <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
+                    </Link>
+                  </li>
+                  <li className='absolute left-1/2 -translate-x-1/2'>
+                    <EditorMode />
+                  </li>
+                  <li className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
+                    <Link href={'/'}>Powrót</Link>
+                  </li>
+                </ul>
+                <div className="w-full lg:hidden flex items-center justify-between relative">
                   <Link href={'/'}>
-                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={70} height={100} className='animate-logoBlur'/>
+                    <Image alt='logoTransparent' src={'/logoTransparent.png'} width={60} height={60} />
                   </Link>
-                </li>
-                <li className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8'>
-                  <Link href={'/'}>Powrót</Link>
-                </li>
-              </ul>
+                  <div className='absolute left-1/2 -translate-x-1/2'>
+                    <EditorMode />
+                  </div>
+                  <Link href={'/'} className='font-medium tracking-wide cursor-pointer hover:text-cp0-400 hover:underline hover:underline-offset-8 text-sm sm:text-base'>
+                    Powrót
+                  </Link>
+                </div>
+              </>
             : <>
               {pathname === '/filmy'
                 ? 
@@ -105,7 +121,6 @@ const Navbar = () => {
                       </button>
                   }
                 </div>
-
               </div>
             </>
           }

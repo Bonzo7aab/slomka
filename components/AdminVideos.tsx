@@ -48,11 +48,11 @@ export const AddMovie = ({ data }: { data: AllMovies[] }) => {
     return (
         <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-                <Button className="bg-green-500 hover:bg-green-600 fixed bottom-8 right-8 p-8 text-2xl">Dodaj</Button>
+                <Button className="bg-green-500 hover:bg-green-600 fixed bottom-4 right-4 sm:bottom-8 sm:right-8 p-4 sm:p-8 text-lg sm:text-2xl">Dodaj</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="p-4 sm:p-6 sm:max-w-[425px]">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
                         <DialogHeader>
                             <DialogTitle>Dodaj film</DialogTitle>
                         </DialogHeader>
@@ -145,15 +145,15 @@ const UpdateMovie = ({ videos, movieCategory, movieId }: { videos: string[] | nu
             <DialogTrigger asChild>
                 <Button className="bg-yellow-500 hover:bg-yellow-600">Zaktualizuj</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="p-4 sm:p-6 sm:max-w-[425px]">
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
                         <DialogHeader>
                             <DialogTitle>Zaktualizuj film</DialogTitle>
                         </DialogHeader>
-                        <DialogDescription>
-                            <Image src={thumbnailParser(movieId)} alt={urlParser(movieId)} width={100} height={100}/>
-                            {urlParser(movieId)}
+                        <DialogDescription className="flex flex-col sm:flex-row items-start sm:items-center gap-2">
+                            <Image src={thumbnailParser(movieId)} alt={urlParser(movieId)} width={100} height={100} className="w-auto h-auto"/>
+                            <span className="break-words">{urlParser(movieId)}</span>
                         </DialogDescription>
                         <FormField
                             control={form.control}
@@ -204,13 +204,13 @@ const DeleteMovie = ({ videos, movieCategory, movieId }: { videos: string[] | nu
             <DialogTrigger asChild>
                 <Button className="bg-red-500 hover:bg-red-600">Usuń</Button>
             </DialogTrigger>
-            <DialogContent className="sm:max-w-[425px]">
+            <DialogContent className="p-4 sm:p-6 sm:max-w-[425px]">
                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 sm:space-y-8">
                         <DialogHeader>
                             <DialogTitle>Usuń film</DialogTitle>
                         </DialogHeader>
-                        <DialogDescription>
+                        <DialogDescription className="break-words">
                             Film: <span className="text-yellow-600">{movieId}</span>
                         </DialogDescription>
                         <Button type="submit">
@@ -239,22 +239,28 @@ const VideoSection = ({ sectionData }: { sectionData: AllMovies }) => {
     };
 
     return (
-        <div className='flex w-full h-fit border border-cp0-600 max-w-7xl self-center p-4 mb-4'>
-            <div className='w-48'>
+        <div className='flex flex-col sm:flex-row w-full h-fit border-0 sm:border border-cp0-600 max-w-7xl self-center p-2 sm:p-4 mb-4'>
+            <div className='w-full sm:w-48 mb-4 sm:mb-0 text-2xl font-bold'>
                 <div className="mb-4">{names[name]}</div>
             </div>
             <div className='w-full'>
                 <div>{description}</div>
                 <div>
                     {videos!.map((video, index) =>
-                        <div key={video} className='p-2 flex'>
-                            <Image src={thumbnailParser(video)} alt={urlParser(video)} width={200} height={200}/>
-                            <div className='p-4 flex justify-between flex-col'>
+                        <div key={video} className='p-2 flex flex-col sm:flex-row gap-4 bg-gray-900/40 rounded mb-2'>
+                            <Image 
+                                src={thumbnailParser(video)} 
+                                alt={urlParser(video)} 
+                                width={200} 
+                                height={200}
+                                className="w-full sm:w-[200px] h-auto object-cover rounded"
+                            />
+                            <div className='p-2 sm:p-4 flex justify-between flex-col flex-1'>
                                 <div>
                                     <div>{urlParser(video)}</div>
                                     <div>Id: <span className="text-cp0-600">{video}</span></div>
                                 </div>
-                                <div className='gap-4 flex'>
+                                <div className='gap-2 sm:gap-4 flex flex-wrap'>
                                     <Button
                                         onClick={() => handleReorder(video, 'up')}
                                         disabled={index === 0}

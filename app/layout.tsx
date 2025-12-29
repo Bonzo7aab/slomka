@@ -3,7 +3,6 @@ import { Inter, Lato } from 'next/font/google'
 import { Toaster } from 'react-hot-toast'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import EditorMode from '@/components/EditorMode'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,7 +28,6 @@ export default function RootLayout({
       <body className={`${inter.className} ${lato.variable}`}>
         <Toaster />
         <Navbar />
-        <EditorMode />
         {children}
         <Footer />
       </body>

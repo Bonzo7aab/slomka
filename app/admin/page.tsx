@@ -10,10 +10,21 @@ export default async function AdminPage() {
     const data = await getData();
     if(!data) return <Skeleton />
 
+    const reversedData = data.reverse();
+
     return (
-        <div className='flex justify-center bg-black text-white flex-col pt-40'>
-            {data.reverse().map(el => <VideoSection key={el.id} sectionData={el} />)}
-            <AddMovie data={data}/>
+        <div className='flex justify-center items-center bg-black text-white flex-col pt-32 sm:pt-40 px-4 sm:px-0'>
+            <div className='w-full max-w-7xl'>
+                {reversedData.map((el, index) => (
+                    <div key={el.id}>
+                        <VideoSection sectionData={el} />
+                        {index < reversedData.length - 1 && (
+                            <div className='w-full h-px bg-cp0-400 my-4'></div>
+                        )}
+                    </div>
+                ))}
+                <AddMovie data={data}/>
+            </div>
         </div>
     )
 }
